@@ -1,13 +1,24 @@
-# build stage
-FROM node:lts-alpine as build-stage
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
+# Dockerfile
 
-# production stage
-FROM nginx:stable-alpine as production-stage
-COPY --from=build-stage /app/dist/angular-js-example /usr/share/nginx/html
+# Etapa de construcción
+FROM node:14-alpine AS build-stage
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build --prod
+
+# Etapa de producción
+FROM nginx:alpine
+
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+
 EXPOSE 80
-CMD ["npm", "run", "build"]
+
+CMD ["nginx", "-g", "daemon off;"]
+
