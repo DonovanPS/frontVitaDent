@@ -1,0 +1,166 @@
+
+
+
+.navbar {
+  background-color: rgb(224, 224, 224);
+  border-bottom:rgb(211, 209, 209) 1px solid;
+  margin-left: 5%;
+  margin-right: 5%;
+  
+  width: 90%;
+  max-width: 2000px;
+
+  height: 10vh;
+ 
+  margin: 0 auto;
+ 
+  justify-content: center;
+  box-sizing: border-box;
+  min-width: 241px;
+
+
+
+
+}
+
+.containerLogo{
+    display: inline-block;
+    position: relative;
+    transition: .3s linear;
+}
+
+.navbar-nav {
+    background-color: rgb(171, 65, 129);
+    border-radius: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-item1 {
+
+  width: 15%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+ 
+
+}
+
+.nav-item {
+
+  width: 20%;
+  
+
+  display: flex;
+  justify-content: center;
+}
+
+.nav-item2 {
+
+  width: 25%;
+  
+
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(224, 224, 224);
+}
+
+.dropdown-menu {
+  background-color: rgb(171, 65, 129);
+}
+
+.dropdown-item {
+ 
+  color: rgb(224, 224, 224);
+  background-color:  rgb(171, 65, 129);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.navbar ul {
+  list-style: none;
+  padding: 0 10px;
+}
+
+.navbar ul li {
+  width: 100%;
+
+  display: inline-block;
+  position: relative;
+  transition: .3s linear;
+}
+
+.navbar ul li:hover {
+  background-color: rgb(184, 76, 141);
+  border-radius: 5px;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+
+.dropdown-item:hover{
+  transition: .3s linear;
+  background-color: rgb(184, 76, 141);
+  border-radius: 5px;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.containerLogo:hover {
+  transform: translateY(-2px);
+ 
+}
+
+
+@media screen and (max-width: 767px) {
+
+  .navbar{
+    height: 100%;
+  }
+  .navbar-nav {
+    width: 100%;
+    display: block;
+    
+  height: 100%;
+  margin-top: 3%;
+
+  
+
+  }
+
+
+
+  .nav-link {
+    margin-left: 10%;
+    margin-right: 10%;
+ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navbar ul li {
+    display: block;
+    position: relative;
+    transition: .3s linear;
+    
+  }
+
+  
+
+
+}

@@ -1,0 +1,86 @@
+<div class="GlobalContainer">
+
+
+
+  <div class="body">
+
+    <h1 class="fw-bold">Examen tejidos dentales</h1>
+
+    <div class="form_tejidos_blandos">
+
+
+      <div class="form-check" id="checkBox">
+        <input [(ngModel)]="tejidosdentales.supernumerarios" class="form-check-input" type="checkbox" value="si"
+          id="flexCheckChecked21d">
+        <label class="form-check-label" for="flexCheckChecked21d">
+          Super numerarios
+        </label>
+      </div>
+
+      <div class="form-check" id="checkBox">
+        <input [(ngModel)]="tejidosdentales.abrasion" class="form-check-input" type="checkbox" value="si"
+          id="flexCheckChecked22d">
+        <label class="form-check-label" for="flexCheckChecked22d">
+          Abrasion
+        </label>
+      </div>
+
+      <div class="form-check" id="checkBox">
+        <input [(ngModel)]="tejidosdentales.incluidos" class="form-check-input" type="checkbox" value="si"
+          id="flexCheckChecked23d">
+        <label class="form-check-label" for="flexCheckChecked23d">
+          Incluidos
+        </label>
+      </div>
+
+      <div class="form-check" id="checkBox">
+        <input [(ngModel)]="tejidosdentales.maloclusiones" class="form-check-input" type="checkbox" value="si"
+          id="flexCheckChecked24d">
+        <label class="form-check-label" for="flexCheckChecked24d">
+          Maloclusiones
+        </label>
+      </div>
+
+      <div class="form-check" id="checkBox">
+        <input [(ngModel)]="tejidosdentales.cambio_color" class="form-check-input" type="checkbox" value="si"
+          id="flexCheckChecked25d">
+        <label class="form-check-label" for="flexCheckChecked25d">
+          Cambio color
+        </label>
+      </div>
+
+      <div class="form-check" id="checkBox">
+        <input [(ngModel)]="tejidosdentales.trauma" class="form-check-input" type="checkbox" value="si"
+          id="flexCheckChecked26d">
+        <label class="form-check-label" for="flexCheckChecked26d">
+          Trauma
+        </label>
+      </div>
+
+      <div class="form-check" id="checkBox">
+        <input [(ngModel)]="tejidosdentales.patologia_pulmonar" class="form-check-input" type="checkbox" value="si"
+          id="flexCheckChecked27d">
+        <label class="form-check-label" for="flexCheckChecked27d">
+          Patologia Pulmonar
+        </label>
+      </div>
+
+
+
+
+      <div class="form-floating" id="observaciones">
+        <textarea [(ngModel)]="tejidosdentales.otros" name="observaciones" class="form-control" id="floatingInput"
+          placeholder="planTratamiento" cols="300" rows="10"></textarea>
+
+        <label for="floatingInput">Otros</label>
+      </div>
+
+
+
+
+      <br>
+
+
+
+    </div>
+  </div>

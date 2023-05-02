@@ -1,0 +1,60 @@
+
+.btn:hover {
+    background-color: rgb(216, 73, 159);
+  }
+  
+
+  
+  .table{
+    background-color: rgb(216, 73, 159);
+    
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  
+    text-align: left;
+    
+  
+  
+  }
+  
+  .Odontologico{
+    display: flex;
+    border-bottom:rgb(211, 209, 209) 1px solid;
+  }
+  
+  .texto{
+    width: 80%;
+    background-color: white;
+    text-align: left;
+  }
+  .button{
+    text-align: left;
+    width: 20%;
+    background-color: white;
+  }
+  
+  #ver{
+    background-color: rgb(216, 73, 159);
+    margin-left: 10%;
+    margin-top: 6%;
+    width: 80%;
+  }
+
+  
+  
+  
+  @media screen and (max-width: 767px) {
+    .Odontologico{
+      display: block;
+    }
+    
+    .texto{
+      width: 100%; 
+      
+    }
+    .button{
+      width: 100%;
+      
+    }
+  }
+  

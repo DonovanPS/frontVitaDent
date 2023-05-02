@@ -1,0 +1,41 @@
+.body {
+    width: 90%;
+    max-width: 2000px;
+    margin: 0 auto;
+    min-width: 241px;
+  
+    background-color: rgb(224, 224, 224);
+  
+    overflow: hidden;
+  
+    box-sizing: border-box;
+  
+    margin-bottom: 1%;
+  
+    max-height: 100%;
+  
+    height: 100%;
+  
+  
+  }
+  
+  .form_tejidos_blandos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-sizing: border-box;
+  }
+
+  
+#checkBox{
+    width: 27%;
+    text-align: start;
+    margin-bottom: 3%;
+  }
+  
+
+  .form-floating{
+    margin-bottom: 2%;
+    width: 54%;
+  
+  }

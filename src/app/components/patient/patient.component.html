@@ -1,0 +1,449 @@
+<div class="containerGlobal">
+
+  <app-navbar></app-navbar>
+
+
+
+  <div class="body">
+
+    <div class="titleContainer mb-4 mt-4 w-100">
+      <h1 class="fw-bold">Paciente</h1>
+    </div>
+
+    <div class="container-fluid">
+
+      <div>
+        <app-son-patient-odontologia *ngIf="showSonPatientOdontologia" [eventSubject]="eventSubject"
+          (idPaciente)="idPacienteEvento($event)" (informacionPaciente)="recibirInformacionPaciente($event)">
+        </app-son-patient-odontologia>
+
+        <app-son-patient-ortodoncia *ngIf="showSonPatientOrtodoncia" [eventSubject]="eventSubject"
+          (idPaciente)="idPacienteEvento($event)" (informacionPaciente)="recibirInformacionPaciente($event)">
+        </app-son-patient-ortodoncia>
+      </div>
+
+
+      <div class="row mx-auto mb-3 justify-content-end" style="width: 90%;">
+        <button type="button" class="btn btn-success col-2 me-2" (click)="editar()">Editar datos</button>
+
+        <!-- Button trigger modal -->
+
+        <button type="button" class="btn btn-danger col-2" data-bs-toggle="modal"
+          data-bs-target="#exampleModal">Eliminar historial</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 class="modal-title" id="exampleModalLabel">Eliminar historial</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p> Eliminar {{history}} del paciente: </p>
+                <p>{{nombres}} identificado con {{tipoDoc}} numero: {{numeroDocumento}} </p>
+                <p>Se eliminara el paciente y todos sus datos, incluyendo las historias y registros</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                  (click)="eliminar()">Eliminar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal fin -->
+
+
+
+      </div>
+
+      <div class="row mx-auto mb-3 text-white" style="width: 90%;">
+        <div class="col hover-transition p-2 rounded-start border-end" (click)="showDiv('R')">Radiografia</div>
+        <div class="col hover-transition p-2 rounded-end border-start" (click)="showDiv('T')">Registros</div>
+      </div>
+
+      <!----- Esto seria lo que apareceria si se da click en radiografia ----->
+
+
+      <div *ngIf="showDivRadiografias" class="row mx-auto mb-3" style="width: 90%;">
+
+
+
+
+
+
+        <!------------------------- Carrucel ----------------------------------->
+
+        <div>
+
+
+
+          <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-indicators" *ngIf="images.length > 0">
+              <button *ngFor="let image of images; let i = index" type="button"
+                [attr.data-bs-target]="'#carouselExampleCaptions'" [attr.data-bs-slide-to]="i" [class.active]="i === 0">
+              </button>
+            </div>
+
+
+            <div class="carousel-inner">
+              <div class="carousel-item" *ngFor="let image of images; let i = index" [class.active]="i === 0">
+                <img [src]="URL + '/' + image.ruta" [alt]="image.titulo" class="d-block w-100" id="radiografia_id"
+                  (click)="verImagenModal(image)">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5>{{ image.titulo }}</h5>
+                  <p> {{image.historia}}: {{ image.descripcion }}</p>
+                </div>
+              </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" [attr.data-bs-target]="'#carouselExampleCaptions'"
+              data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" [attr.data-bs-target]="'#carouselExampleCaptions'"
+              data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+
+
+
+          <div class="row mx-auto mb-3 justify-content-end" style="width: 100%;">
+
+            <button type="button" class="btn btn-secondary col-2 me-2 agregarImagen" data-bs-toggle="modal"
+              data-bs-target="#agregarImagen">Agregar imagen</button>
+
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <!----- Esto seria lo que apareceria si se da click en Registros ----->
+
+      <div *ngIf="showDivTable" class="row mx-auto mb-3" style="width: 90%;">
+
+        <table class="table table-striped">
+          <thead>
+            <tr style="background-color: #ab4181;">
+              <th scope="col" class="text-white fw-normal">Fecha</th>
+              <th scope="col" class="text-white fw-normal">Id Paciente</th>
+              <th scope="col" class="text-white fw-normal">Consulta</th>
+              <th scope="col" class="text-white fw-normal">Descripción</th>
+              <th scope="col" class="text-white fw-normal">Procedimiento</th>
+              <th scope="col" class="text-white fw-normal">Precio</th>
+            </tr>
+          </thead>
+          <tr *ngFor="let record of records">
+            <td>{{record.fecha}}</td>
+            <td>{{record.paciente_id}}</td>
+            <td>{{record.consulta}}</td>
+            <td>{{record.descripcion}}</td>
+            <td>{{record.procedimiento}}</td>
+            <td>{{record.precio}}</td>
+
+            <td>
+              <button (click)="CargarRegistroEditar(record)" class="btn btn-link" title="Editar" data-bs-toggle="modal" data-bs-target="#modalEditarRegistro">
+                <span class="material-icons">&#xe3c9;</span>
+                <i class="fa fa-pencil"></i>
+              </button>
+              <button class="btn btn-link" title="Eliminar" (click)="eliminarRegistro(record.registro_id)">
+                <span class="material-icons">&#xe872;</span>
+                <i class="fa fa-trash"></i>
+              </button>
+            </td>
+
+          </tr>
+          <tbody>
+          </tbody>
+        </table>
+
+        <div class="row mx-auto justify-content-end">
+          <button type="button" class="btn btn-info col-2 text-white" data-bs-toggle="modal"
+            data-bs-target="#modalNuevoRegistro">Nuevo registro</button>
+        </div>
+
+      </div>
+
+      <!-------------------------------------------------------------------------->
+
+ <!------------------------- Modal editar registro inicio --------------------------------->
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalEditarRegistro" tabindex="-1" aria-labelledby="ver Imagen" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="exampleModalLabel">Editar registro</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+
+            <div class="containerForm">
+
+              <form [formGroup]="RegistroForm">
+
+                <div class="containerForm">
+
+                  <div class="form-floating">
+                    <input class="form-control" placeholder="name" formControlName="descripcion">
+                    <label for="floatingInput">Descripción </label>
+
+                  </div>
+
+                  <div class="form-floating">
+                    <input class="form-control" placeholder="procedimiento" formControlName="procedimiento">
+                    <label for="floatingInput">Procedimiento</label>
+
+                  </div>
+
+                  <div class="form-floating">
+                    <input class="form-control" placeholder="name" formControlName="precio">
+                    <label for="floatingInput">Precio</label>
+
+                  </div>
+
+                  <div class="datepiker">
+                    <input id="fromDate" type="date" class="mb-2" name="fechaConsulta" formControlName="fecha">
+                  </div>
+
+                  <div class="tipoCons">
+                    <label>Consulta: </label>
+                    <div class="row">
+                      <div class="col-md-16">
+
+                        <select name="tipoConsulta" class="form-select" formControlName="consulta">
+                          <option value="" selected disabled>Selecione una opción...</option>
+                          <option value="{{tipoRegistro}}"> {{tipoRegistro}} </option>
+                          <option value="Urgencia">Urgencia</option>
+                        </select>
+
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+                </div>
+              </form>
+
+            </div>
+
+
+            <div class="modal-footer">
+              <button (click)="actualizarRegistro()" type="button" class="btn btn-primary"
+                data-bs-dismiss="modal">Actualizar</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!------------------------- Modal editar registro Fin --------------------------------->
+
+
+
+    </div>
+
+
+  </div>
+
+
+  <button id="myButton2" (click)="cambiarPagina()" type="button" class="btn btn-primary" routerLink="/history-search">
+    atras </button>
+
+
+
+  <!-------------- Modal agregar imagen ----------------------->
+
+  <div class="modal fade" id="agregarImagen" tabindex="-1" aria-labelledby="agregar Imagen" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="exampleModalLabel">Nueva radiografia</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <app-upload-image [eventSubject]="eventSubjectAgregarImagen"></app-upload-image>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <button (click)="subirRadiografia()" type="button" class="btn btn-primary"
+            data-bs-dismiss="modal">Agregar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-------------- Modal agregar imagen fin ----------------------->
+
+
+
+  <!-------------- Modal CRUD ver imagen ----------------------->
+  <button id="modalVerImagenes" type="button" class="btn btn-danger col-2" data-bs-toggle="modal"
+    data-bs-target="#verImagen">Ver
+    imagen</button>
+
+
+  <div class="modal fade" id="verImagen" tabindex="-1" aria-labelledby="ver Imagen" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="exampleModalLabel">Radiografia</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <h2>Titulo:
+            <input [(ngModel)]="verImagen.titulo" class="form-control" placeholder="Titulo"> </h2>
+
+
+          <p>Descripción:
+
+            <input [(ngModel)]="verImagen.descripcion" class="form-control" placeholder="Descripcion">
+
+          </p>
+
+          <div class="historia">
+            <label>Consulta: </label>
+            <div class="row">
+              <div class="col-md-8">
+
+                <select required [(ngModel)]="verImagen.historia" class="form-select" id="genero">
+                  <option value="" selected disabled>Selecione una opción...</option>
+                  <option value="{{historia_Consultar}}"> {{historia_Consultar}} </option>
+                  <option value="Urgencia">Urgencia</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <form [formGroup]="imageForm">
+
+            <p>Imagen:</p>
+            <input type="file" formControlName="file" accept="image/*" class="form-control"
+              (change)="previewImage($event)">
+          </form>
+
+          <br>
+          <br>
+
+          <p> Nueva Radiografia: </p>
+
+          <img [src]="imageUrl" *ngIf="imageUrl" class="img-fluid">
+
+          <br>
+          <br>
+
+          <p> Radiografia Actual: </p>
+          <img [src]="URL + '/' + verImagen.ruta" [alt]="verImagen.titulo" class="d-block w-100"
+            [id]="verImagen.radiografia_id">
+        </div>
+
+        <div class="modal-footer">
+          <button (click)="updateRadiografia(verImagen.radiografia_id )" type="button" class="btn btn-primary"
+            data-bs-dismiss="modal">Actualizar</button>
+          <button (click)="deleteRadiografia(verImagen.radiografia_id,verImagen.ruta)" type="button"
+            class="btn btn-danger" data-bs-dismiss="modal">Eliminar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-------------- Modal ver imagen fin ----------------------->
+
+
+
+  <!-------------- Modal CRUD Nuevo registro ----------------------->
+
+  <div class="modal fade" id="modalNuevoRegistro" tabindex="-1" aria-labelledby="ver Imagen" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="exampleModalLabel">Registro</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+
+          <div class="containerForm">
+
+            <form [formGroup]="RegistroForm">
+
+              <div class="containerForm">
+
+                <div class="form-floating">
+                  <input class="form-control" placeholder="name" formControlName="descripcion">
+                  <label for="floatingInput">Descripción </label>
+
+                </div>
+
+                <div class="form-floating">
+                  <input class="form-control" placeholder="procedimiento" formControlName="procedimiento">
+                  <label for="floatingInput">Procedimiento</label>
+
+                </div>
+
+                <div class="form-floating">
+                  <input class="form-control" placeholder="name" formControlName="precio">
+                  <label for="floatingInput">Precio</label>
+
+                </div>
+
+                <div class="datepiker">
+                  <input id="fromDate" type="date" class="mb-2" name="fechaConsulta" formControlName="fecha">
+                </div>
+
+                <div class="tipoCons">
+                  <label>Consulta: </label>
+                  <div class="row">
+                    <div class="col-md-16">
+
+                      <select name="tipoConsulta" class="form-select" formControlName="consulta">
+                        <option value="" selected disabled>Selecione una opción...</option>
+                        <option value="{{tipoRegistro}}"> {{tipoRegistro}} </option>
+                        <option value="Urgencia">Urgencia</option>
+                      </select>
+
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+              </div>
+            </form>
+
+          </div>
+
+
+          <div class="modal-footer">
+            <button (click)="nuevoRegistro()" type="button" class="btn btn-primary"
+              data-bs-dismiss="modal">Agregar</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-------------- Modal nuevo registro fin ----------------------->
+
+
+  </div>

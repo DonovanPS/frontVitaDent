@@ -1,0 +1,353 @@
+<div class="GlobalContainer">
+
+  <app-navbar></app-navbar>
+
+
+  <div class="body">
+
+    <h1 class="fw-bold">Nuevo Historial </h1>
+
+    <form #myForm="ngForm">
+      <div class="containerForm">
+
+
+
+        <div class="form-floating">
+          <input [(ngModel)]="paciente.id" (blur)="validarNumeroDocumento(paciente.id)" name="pacienteId" required
+            type="text" class="form-control" id="floatingInputN" placeholder="ID" maxlength="30"
+            onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+
+          <label for="floatingInput">Numero Documento</label>
+
+          <div
+            *ngIf=" !validDoc ||   myForm.controls['pacienteId']?.invalid && (myForm.controls['pacienteId']?.dirty || myForm.controls['pacienteId']?.touched)">
+            <div *ngIf="myForm.controls['pacienteId']?.errors?.['required']">Campo obligatorio.</div>
+            <div *ngIf="!validDoc">Paciente Existente.</div>
+          </div>
+
+
+        </div>
+
+
+        <div class="tipoId">
+
+          <div class="form-check form-check-inline" id="CC">
+            <input [(ngModel)]="paciente.tipoID" required name="pacientetipoId" class="form-check-input" type="radio"
+              name="inlineRadioOptions" id="inlineRadio1" value="CC">
+            <label class="form-check-label" for="inlineRadio1">C.C</label>
+
+
+          </div>
+
+
+          <div class="form-check form-check-inline" id="TI">
+            <input [(ngModel)]="paciente.tipoID" required name="pacientetipoId" class="form-check-input" type="radio"
+              name="inlineRadioOptions" id="inlineRadio2" value="TI">
+            <label class="form-check-label" for="inlineRadio2">T.I</label>
+          </div>
+
+          <div class="form-check form-check-inline" id="PAS">
+            <input [(ngModel)]="paciente.tipoID" required name="pacientetipoId" class="form-check-input" type="radio"
+              name="inlineRadioOptions" id="inlineRadio3" value="PAS">
+            <label class="form-check-label" for="inlineRadio3">PAS</label>
+          </div>
+
+          <div class="form-check form-check-inline" id="CE">
+            <input [(ngModel)]="paciente.tipoID" required name="pacientetipoId" class="form-check-input" type="radio"
+              name="inlineRadioOptions" id="inlineRadio4" value="CE">
+            <label class="form-check-label" for="inlineRadio4">CE</label>
+          </div>
+
+          <div class="form-check form-check-inline" id="CEX">
+            <input [(ngModel)]="paciente.tipoID" required name="pacientetipoId" class="form-check-input" type="radio"
+              name="inlineRadioOptions" id="inlineRadio5" value="CEX">
+            <label class="form-check-label" for="inlineRadio5">CEX</label>
+          </div>
+
+
+        </div>
+
+
+
+        <div class="form-floating">
+          <input [(ngModel)]="paciente.nombre" name="pacienteNombre" required type="text" class="form-control"
+            placeholder="name">
+          <label for="floatingInput">Nombres</label>
+
+          <div
+            *ngIf="myForm.controls['pacienteNombre']?.invalid && (myForm.controls['pacienteNombre']?.dirty || myForm.controls['pacienteNombre']?.touched)">
+            <div *ngIf="myForm.controls['pacienteNombre']?.errors?.['required']">Campo obligatorio.</div>
+          </div>
+
+        </div>
+
+
+
+        <div class="datepiker">
+          <mat-form-field class="custom-form-field" appearance="fill">
+            <mat-label>Fecha nacimiento</mat-label>
+            <input [(ngModel)]="paciente.fechaNacimiento" required name="pacientefecha" matInput
+              [matDatepicker]="picker">
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <div
+            *ngIf="myForm.controls['pacientefecha']?.invalid && (myForm.controls['pacientefecha']?.dirty || myForm.controls['pacientefecha']?.touched)">
+            <div *ngIf="myForm.controls['pacientefecha']?.errors?.['required']">Campo obligatorio.</div>
+          </div>
+
+
+        </div>
+
+
+        <div class="form-floating">
+          <input [(ngModel)]="paciente.apellido" required type="text" class="form-control" id="floatingInput"
+            placeholder="A" name="Apellidos">
+          <label for="floatingInput">Apellidos</label>
+
+          <div
+            *ngIf="myForm.controls['Apellidos']?.invalid && (myForm.controls['Apellidos']?.dirty || myForm.controls['Apellidos']?.touched)">
+            <div *ngIf="myForm.controls['Apellidos']?.errors?.['required']">Campo obligatorio.</div>
+          </div>
+
+        </div>
+
+
+        <div class="sexo">
+          <label>Género</label>
+          <div class="row">
+            <div class="col-md-8">
+
+              <select [(ngModel)]="paciente.genero" required name="pacienteGenero" class="form-select" id="genero">
+                <option value="" selected disabled>Selecione una opción...</option>
+                <option value="M">Masculino</option>
+                <option value="F">Femenino</option>
+              </select>
+
+              <div
+                *ngIf="myForm.controls['pacienteGenero']?.invalid && (myForm.controls['pacienteGenero']?.dirty || myForm.controls['pacienteGenero']?.touched)">
+                <div *ngIf="myForm.controls['pacienteGenero']?.errors?.['required']">Campo obligatorio.</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-floating">
+          <input [(ngModel)]="paciente.estadoCivil" required type="text" class="form-control" id="floatingInput"
+            placeholder="name" name="EstadoCivil">
+          <label for="floatingInput">Estado Civil</label>
+
+          <div
+            *ngIf="myForm.controls['EstadoCivil']?.invalid && (myForm.controls['EstadoCivil']?.dirty || myForm.controls['EstadoCivil']?.touched)">
+            <div *ngIf="myForm.controls['EstadoCivil']?.errors?.['required']">Campo obligatorio.</div>
+          </div>
+        </div>
+
+
+        <div class="form-floating">
+          <input [(ngModel)]="paciente.ciudadNacimiento" required type="text" class="form-control" id="floatingInput"
+            placeholder="A" name="CiudadNacimiento">
+          <label for="floatingInput">Ciudad de nacimiento</label>
+
+          <div
+            *ngIf="myForm.controls['CiudadNacimiento']?.invalid && (myForm.controls['CiudadNacimiento']?.dirty || myForm.controls['CiudadNacimiento']?.touched)">
+            <div *ngIf="myForm.controls['CiudadNacimiento']?.errors?.['required']">Campo obligatorio.</div>
+          </div>
+
+        </div>
+
+
+        <div class="form-floating">
+          <input [(ngModel)]="paciente.ocupacion" required type="text" class="form-control" id="floatingInput"
+            placeholder="A" name="Ocupacion">
+          <label for="floatingInput">Ocupacion</label>
+
+          <div
+            *ngIf="myForm.controls['Ocupacion']?.invalid && (myForm.controls['Ocupacion']?.dirty || myForm.controls['Ocupacion']?.touched)">
+            <div *ngIf="myForm.controls['Ocupacion']?.errors?.['required']">Campo obligatorio.</div>
+          </div>
+
+        </div>
+
+        <div class="form-floating">
+          <input [(ngModel)]="paciente.servicioSalud" required type="text" class="form-control" id="floatingInput"
+            placeholder="A" name="ServicioSalud">
+          <label for="floatingInput">Servicio de salud</label>
+
+          <div
+            *ngIf="myForm.controls['ServicioSalud']?.invalid && (myForm.controls['ServicioSalud']?.dirty || myForm.controls['ServicioSalud']?.touched)">
+            <div *ngIf="myForm.controls['ServicioSalud']?.errors?.['required']">Campo obligatorio.</div>
+          </div>
+
+        </div>
+
+
+        <div class="form-floating">
+          <input [(ngModel)]="paciente.ciudadResidencia" required type="text" class="form-control" id="floatingInput"
+            placeholder="A" name="CiudadResidencia">
+          <label for="floatingInput">Ciudad de residencia</label>
+
+          <div
+            *ngIf="myForm.controls['CiudadResidencia']?.invalid && (myForm.controls['CiudadResidencia']?.dirty || myForm.controls['CiudadResidencia']?.touched)">
+            <div *ngIf="myForm.controls['CiudadResidencia']?.errors?.['required']">Campo obligatorio.</div>
+          </div>
+        </div>
+
+
+        <div class="form-floating">
+          <input [(ngModel)]="paciente.direccion" required type="text" class="form-control" id="floatingInput"
+            placeholder="A" name="Direccion">
+          <label for="floatingInput">Dirección</label>
+
+          <div
+            *ngIf="myForm.controls['Direccion']?.invalid && (myForm.controls['Direccion']?.dirty || myForm.controls['Direccion']?.touched)">
+            <div *ngIf="myForm.controls['Direccion']?.errors?.['required']">Campo obligatorio.</div>
+          </div>
+
+        </div>
+
+
+        <div class="form-floating">
+          <input [(ngModel)]="paciente.celular" required type="text" class="form-control" id="floatingInput"
+            placeholder="A" name="telefono"
+            onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+          <label for="floatingInput">Numero de celular</label>
+
+          <div
+            *ngIf="myForm.controls['telefono']?.invalid && (myForm.controls['telefono']?.dirty || myForm.controls['telefono']?.touched)">
+            <div *ngIf="myForm.controls['telefono']?.errors?.['required']">El telefono es obligatorio.</div>
+          </div>
+
+        </div>
+
+
+
+
+
+      </div>
+
+      <!-------------------------------------------------------------------------->
+
+
+      <h1 class="fw-bold">Acudiente</h1>
+
+      <form #myForm="ngForm">
+
+        <div class="containerForm">
+
+          <div class="form-floating">
+            <input [(ngModel)]="acudiente.nombre" name="nombre" required type="text" class="form-control"
+              placeholder="name">
+            <label for="floatingInput">Nombre</label>
+
+          </div>
+
+          <div class="form-floating">
+            <input [(ngModel)]="acudiente.parentesco" name="parentesco" required type="text" class="form-control"
+              placeholder="name">
+            <label for="floatingInput">Parentesco</label>
+
+          </div>
+
+          <div class="form-floating">
+            <input [(ngModel)]="acudiente.apellido" name="apellido" required type="text" class="form-control"
+              placeholder="name">
+            <label for="floatingInput">Apellido</label>
+
+          </div>
+
+          <div class="datepiker">
+            <mat-form-field class="custom-form-field" appearance="fill">
+              <mat-label>Fecha nacimiento</mat-label>
+              <input [(ngModel)]="acudiente.fechaNacimiento" required name="fecha" matInput [matDatepicker]="picker2"
+                (dateChange)="onDateChange($event)">
+              <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
+            </mat-form-field>
+          </div>
+
+          <div class="form-floating">
+            <input [(ngModel)]="acudiente.telefono" name="telefono" required type="text" class="form-control"
+              placeholder="name" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+            <label for="floatingInput">Numero celular</label>
+
+          </div>
+
+        </div>
+      </form>
+
+      <br>
+      <br>
+
+      <app-son-new-history-form-odontology [eventSubject]="eventSubject" (odontologiaEvent)="odontologiaEvento($event)">
+      </app-son-new-history-form-odontology>
+
+      <br>
+      <br>
+      <app-son-new-history-form-anamnesis [eventSubject]="eventSubject" (anamnesisEvent)="anamnesisEvento($event)">
+      </app-son-new-history-form-anamnesis>
+
+      <br>
+      <br>
+      <app-son-new-history-examen-periodontal [eventSubject]="eventSubject" (examenEvent)="pruebaEvento($event)">
+      </app-son-new-history-examen-periodontal>
+
+      <br>
+      <br>
+      <app-son-new-history-examen-tejidos-blandos [eventSubject]="eventSubject"
+        (tejidosblandosEvent)="tejidosBlandosEvento($event)"></app-son-new-history-examen-tejidos-blandos>
+
+      <br>
+      <br>
+
+      <app-son-new-history-examen-tejidos-dentales [eventSubject]="eventSubject"
+        (tejidosDentalesEvent)="tejidosDentalesEvento($event)"></app-son-new-history-examen-tejidos-dentales>
+
+      <br>
+      <br>
+
+
+      <button [disabled]="!myForm.valid" class="btn btn-primary" disabled (click)="prueba()">Enviar</button>
+      <br>
+      <br>
+
+    </form>
+
+
+
+    <!-- Button trigger modal -->
+
+    <button id="buttonModal" type="button" class="btn btn-danger col-2" data-bs-toggle="modal"
+      data-bs-target="#exampleModal">Modal</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="exampleModalLabel"> {{modalTitulo}} </h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p> {{modalContenid}} </p>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="reload()" >Aceptar</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal fin -->
+
+
+
+  </div>
+
+
+</div>

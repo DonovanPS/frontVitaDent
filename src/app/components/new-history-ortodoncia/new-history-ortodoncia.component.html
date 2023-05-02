@@ -1,0 +1,188 @@
+<div class="containerGlobal">
+
+    <app-navbar></app-navbar>
+
+
+
+    <div class="body">
+
+      <div class="titleContainer mb-4 mt-4 w-100">
+        <h1 class="fw-bold">Nuevo Historial de Ortodoncia</h1>
+      </div>
+
+
+      <div class="container-fluid w-75">
+
+        <form #myForm="ngForm">
+
+            <div class="row mb-3">
+
+              <div class="idPaciente">
+                <label>Paciente</label>
+                <div class="row">
+                  <div>
+
+                    <select [(ngModel)]="ortodoncia.ortodoncia_id" required name="idPaciente" class="form-select" id="genero">
+                      <option selected disabled>Seleccione id paciente</option>
+                      <option *ngFor="let paciente of pacientes" value="{{paciente.paciente_id}}">
+                        {{paciente.paciente_id}} - {{paciente.nombre}} {{paciente.apellido}}
+                      </option>
+                    </select>
+
+
+                    <div
+                      *ngIf="myForm.controls['idPaciente']?.invalid && (myForm.controls['idPaciente']?.dirty || myForm.controls['idPaciente']?.touched)">
+                      <div *ngIf="myForm.controls['idPaciente']?.errors?.['required']">Campo obligatorio.</div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+                <div class="form-floating col">
+                  <input [(ngModel)]="ortodoncia.linea_media" name="linea_media" type="text" class="form-control" id="lineaMediaInput" placeholder="Linea Media">
+                  <label for="lineaMediaInput" class="ms-3">Linea Media</label>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+
+                <div class="form-floating col">
+                    <input [(ngModel)]="ortodoncia.overjet" name="overjet" type="text" class="form-control" id="overjetInput" placeholder="Overjet">
+                    <label for="overjetInput" class="ms-3">Overjet</label>
+                </div>
+
+                <div class="form-floating col">
+                  <input [(ngModel)]="ortodoncia.overbite" name="overbite" type="text" class="form-control" id="overbiteInput" placeholder="Overbite">
+                  <label for="overbiteInput" class="ms-3">Overbite</label>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+
+                <div class="form-floating col">
+                    <input [(ngModel)]="ortodoncia.perdida_dientes" name="perdida_dientes" type="text" class="form-control" id="perdidaDientesInput" placeholder="Perdida de Dientes">
+                    <label for="perdidaDientesInput" class="ms-3">Perdida de Dientes</label>
+                </div>
+
+                <div class="form-floating col">
+                  <input [(ngModel)]="ortodoncia.migraciones" type="text" name="migraciones"  class="form-control" id="migracionesInput" placeholder="Migraciones">
+                  <label for="migracionesInput" class="ms-3">Migraciones</label>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+
+                <div class="form-floating col">
+                    <input [(ngModel)]="ortodoncia.asimentria_facial" name="asimentria_facial" type="text" class="form-control" id="asimetriaFacialInput" placeholder="Asimetría Facial">
+                    <label for="asimetriaFacialInput" class="ms-3">Asimetría Facial</label>
+                </div>
+
+                <div class="form-floating col">
+                  <input [(ngModel)]="ortodoncia.apinamiento_superior" name="apinamiento_superior"  type="text" class="form-control" id="apinamientoSuperiorInput" placeholder="Apinamiento Superior">
+                  <label for="apinamientoSuperiorInput" class="ms-3">Apinamiento Superior</label>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+
+                <div class="form-floating col">
+                    <input [(ngModel)]="ortodoncia.apinamiento_inferior" name="apinamiento_inferior" type="text" class="form-control" id="apinamientoInferiorInput" placeholder="Apinamiento Inferior">
+                    <label for="apinamientoInferiorInput" class="ms-3">Apinamiento Inferior</label>
+                </div>
+                <div class="form-floating col">
+                  <input [(ngModel)]="ortodoncia.perfil" name="perfil" type="text" class="form-control" id="perfilInput" placeholder="Perfil">
+                  <label for="perfilInput" class="ms-3">Perfil</label>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+
+                <div class="form-floating col">
+                    <input [(ngModel)]="ortodoncia.habitos" name="habitos" type="text" class="form-control" id="habitosInput" placeholder="Hábitos">
+                    <label for="habitosInput" class="ms-3">Hábitos</label>
+                </div>
+                <div class="form-floating col">
+                  <input [(ngModel)]="ortodoncia.relacion_canina_derecha" name="relacion_canina_derecha" type="text" class="form-control" id="relacionCaninaDerechaInput" placeholder="Relación Canina Derecha">
+                  <label for="relacionCaninaDerechaInput" class="ms-3">Relación Canina Derecha</label>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+
+                <div class="form-floating col">
+                    <input [(ngModel)]="ortodoncia.relacion_canina_izquierda" name="relacion_canina_izquierda" type="text" class="form-control" id="relacionCaninaIzquierdaInput" placeholder="Relación Canina Izquierda">
+                    <label for="relacionCaninaIzquierdaInput" class="ms-3">Relación Canina Izquierda</label>
+                </div>
+                <div class="form-floating col">
+                  <input [(ngModel)]="ortodoncia.relacion_molar_derecha" name="relacion_molar_derecha" type="text" class="form-control" id="relacionMolarDerechaInput" placeholder="Relación Molar Derecha">
+                  <label for="relacionMolarDerechaInput" class="ms-3">Relación Molar Derecha</label>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+
+                <div class="form-floating col">
+                    <input [(ngModel)]="ortodoncia.relacion_molar_izquierda" name="relacion_molar_izquierda" type="text" class="form-control" id="relacionMolarIzquierdaInput" placeholder="Relación Molar Izquierda">
+                    <label for="relacionMolarIzquierdaInput" class="ms-3">Relación Molar Izquierda</label>
+                </div>
+                <div class="form-floating col">
+                  <input [(ngModel)]="ortodoncia.mal_posicion_dental_superior" name="mal_posicion_dental_superior" type="text" class="form-control" id="malPosicionDentalSuperiorInput" placeholder="Mal Posición Dental Superior">
+                  <label for="malPosicionDentalSuperiorInput" class="ms-3">Mal Posición Dental Superior</label>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+
+                <div class="form-floating col">
+                    <input [(ngModel)]="ortodoncia.mal_posicion_dental_inferior" name="mal_posicion_dental_inferior" type="text" class="form-control" id="malPosicionDentalInferiorInput" placeholder="Mal Posición Dental Inferior">
+                    <label for="malPosicionDentalInferiorInput" class="ms-3">Mal Posición Dental Inferior</label>
+                </div>
+                <div class="form-floating col">
+                  <input [(ngModel)]="ortodoncia.mordida_cruzada" name="mordida_cruzada" type="text" class="form-control" id="mordidaCruzadaInput" placeholder="Mordida Cruzada">
+                  <label for="mordidaCruzadaInput" class="ms-3">Mordida Cruzada</label>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+
+                <div class="form-floating col">
+                    <input [(ngModel)]="ortodoncia.otros" name="otros" type="text" class="form-control" id="otrosOrtodonciaInput" placeholder="Otros">
+                    <label for="otrosOrtodonciaInput" class="ms-3">Otros</label>
+                </div>
+                <div class="form-floating col-6">
+                  <input [(ngModel)]="ortodoncia.pronostico" name="pronostico" type="text" class="form-control" id="pronosticoInput" placeholder="Pronóstico">
+                  <label for="pronosticoInput" class="ms-3">Pronóstico</label>
+              </div>
+            </div>
+
+
+
+            <div class="row mb-3">
+                <div class="form-floating col">
+                    <textarea [(ngModel)]="ortodoncia.plan_de_tratamiento" name="plan_de_tratamiento" class="form-control" placeholder="Plan de Tratamiento" id="planTratamientoOrtodonciaTextarea" style="height: 100px"></textarea>
+                    <label for="planTratamientoOrtodonciaTextarea" class="ms-3">Plan de Tratamiento</label>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <button [disabled]="!myForm.valid"  disabled (click)="crearNuevaHistorias()" type="submit" class="btn text-white ms-auto me-3 col-3" style="background-color: #ab4181;">Crear Historial</button>
+            </div>
+
+        </form>
+
+      </div>
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+  </div>

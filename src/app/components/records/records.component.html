@@ -1,0 +1,216 @@
+<div class="containerGlobal">
+
+  <app-navbar></app-navbar>
+
+
+
+  <div class="body">
+
+    <div class="titleContainer mb-4 mt-4 w-100">
+      <h1 class="fw-bold">Buscador de Registros</h1>
+    </div>
+
+    <div class="container-fluid">
+
+      <div class="row">
+
+        <div class="col-2">
+
+          <div class="card" style="width: 100%;margin-bottom: 5%;">
+            <div class="card-body">
+              <h4 class="card-title">Rango de fechas</h4>
+              <form action="">
+                <label for="fromDate" class="text-start mb-2">Desde:
+                  <input id="fromDate" type="date" class="mb-2">
+                </label>
+                <label for="fromDate" class="text-start mb-2">Hasta:
+                  <input id="toDate" type="date" class="mb-2">
+                </label>
+                <button type="submit" class="btn text-white btn-sm" (click)="filterByDateRange()"
+                  style="background-color: #ab4181;">Aplicar</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="card" style="width: 100%;">
+            <div class="card-body">
+              <h4 class="card-title">Tipo</h4>
+              <form action="">
+                <div class="form-check text-start">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="isUrgent" id="checkUrgencia"
+                    name="urgent">
+                  <label class="form-check-label" for="checkUrgencia">
+                    Urgencia
+                  </label>
+                </div>
+                <div class="form-check text-start">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="isDental" id="checkOdontologia"
+                    name="dental">
+                  <label class="form-check-label" for="checkOdontologia">
+                    Odontología
+                  </label>
+                </div>
+                <div class="form-check text-start">
+                  <input class="form-check-input" type="checkbox" [(ngModel)]="isOrthodontic" id="checkOrtodoncia"
+                    name="orthodontic">
+                  <label class="form-check-label" for="checkOrtodoncia">
+                    Ortodoncia
+                  </label>
+                </div>
+                <button type="submit" class="btn text-white btn-sm" (click)="filterbytype()"
+                  style="background-color: #ab4181;">Aplicar</button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-10">
+          <div class="row mb-2">
+            <div class="dropdown col text-start">
+              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false" style="background-color: #ab4181;">
+                Ordenar por:
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" (click)="sortTableDate('asc')">Fecha(ascendente)</a></li>
+                <li><a class="dropdown-item" (click)="sortTableDate('desc')">Fecha(descendente)</a></li>
+
+                <li><a class="dropdown-item" (click)="sortTablePrice('asc')">Precio(ascendente)</a></li>
+                <li><a class="dropdown-item" (click)="sortTablePrice('desc')">Precio(descendente)</a></li>
+              </ul>
+            </div>
+            <div class="col text-end fs-6">
+              <p class="align-bottom mt-3 mb-1">Total de ganancias: {{totalPrice}}</p>
+            </div>
+          </div>
+
+          <table class="table table-striped" *ngIf="records.length > 0">
+            <thead>
+              <tr style="background-color: #ab4181;">
+                <th scope="col" class="text-white fw-normal">Fecha</th>
+                <th scope="col" class="text-white fw-normal">Id Paciente</th>
+                <th scope="col" class="text-white fw-normal">Consulta</th>
+                <th scope="col" class="text-white fw-normal">Descripción</th>
+                <th scope="col" class="text-white fw-normal">Procedimiento</th>
+                <th scope="col" class="text-white fw-normal">Precio</th>
+              </tr>
+            </thead>
+            <tbody #myTbody>
+              <tr *ngFor="let record of records">
+                <td>{{record.fecha}}</td>
+                <td>{{record.paciente_id}}</td>
+                <td>{{record.consulta}}</td>
+                <td>{{record.descripcion}}</td>
+                <td>{{record.procedimiento}}</td>
+                <td>{{record.precio}}</td>
+
+                <td>
+                  <button (click)="CargarRegistroEditar(record)" class="btn btn-link" title="Editar" data-bs-toggle="modal" data-bs-target="#modalEditarRegistro">
+                    <span class="material-icons">&#xe3c9;</span>
+                    <i class="fa fa-pencil"></i>
+                  </button>
+                  <button class="btn btn-link" title="Eliminar" (click)="eliminarRegistro(record.registro_id)">
+                    <span class="material-icons">&#xe872;</span>
+                    <i class="fa fa-trash"></i>
+                  </button>
+                </td>
+
+              </tr>
+            </tbody>
+          </table>
+
+
+
+
+
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalEditarRegistro" tabindex="-1" aria-labelledby="ver Imagen" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2 class="modal-title" id="exampleModalLabel">Editar registro</h2>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+
+            <div class="containerForm">
+
+              <form [formGroup]="RegistroForm">
+
+                <div class="containerForm">
+
+                  <div class="form-floating">
+                    <input class="form-control" placeholder="name" formControlName="descripcion">
+                    <label for="floatingInput">Descripción </label>
+
+                  </div>
+
+                  <div class="form-floating">
+                    <input class="form-control" placeholder="procedimiento" formControlName="procedimiento">
+                    <label for="floatingInput">Procedimiento</label>
+
+                  </div>
+
+                  <div class="form-floating">
+                    <input class="form-control" placeholder="name" formControlName="precio">
+                    <label for="floatingInput">Precio</label>
+
+                  </div>
+
+                  <div class="datepiker">
+                    <input id="fromDate" type="date" class="mb-2" name="fechaConsulta" formControlName="fecha">
+                  </div>
+
+                  <div class="tipoCons">
+                    <label>Consulta: </label>
+                    <div class="row">
+                      <div class="col-md-16">
+
+                        <select name="tipoConsulta" class="form-select" formControlName="consulta">
+                          <option value="" selected disabled>Selecione una opción...</option>
+                          <option value="Odontología"> Odontología </option>
+                          <option value="Ortodoncia"> Ortodoncia </option>
+                          <option value="Urgencia">Urgencia</option>
+                        </select>
+
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+                </div>
+              </form>
+
+            </div>
+
+
+            <div class="modal-footer">
+              <button (click)="actualizarRegistro()" type="button" class="btn btn-primary"
+                data-bs-dismiss="modal">Actualizar</button>
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!------------------------- Modal editar registro Fin --------------------------------->
+
+
+
+
+  </div>

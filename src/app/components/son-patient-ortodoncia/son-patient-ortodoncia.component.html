@@ -1,0 +1,829 @@
+<div class="card mx-auto mb-3" style="overflow-y: scroll;width: 90%; max-height: 320px;">
+  <div class="card-body">
+
+    <div class="container">
+      <div class="row">
+        <img src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_1280.png" class="col-2 img-fluid"
+          alt="Foto usuario" style="width: 13%; height: 13%;">
+        <div class="container col-10">
+
+          <p class="fw-bold">Datos básicos</p>
+          <div class="row">
+            <p class="col text-start">Nombre: {{paciente.nombre}} {{paciente.apellido}} </p>
+          </div>
+          <div class="row">
+            <p class="col text-start">Tipo de documento: {{paciente.tipoID}} </p>
+            <p class="col text-start">No: {{paciente.id}} </p>
+            <p class="col text-start">Fecha de nacimiento: {{paciente.fechaNacimiento  | date: 'yyyy-MM-dd'}} </p>
+          </div>
+          <div class="row">
+            <p class="col text-start">Edad: {{edad}} </p>
+            <p class="col text-start">Sexo: {{paciente.genero}} </p>
+            <p class="col text-start">Ocupación: {{paciente.ocupacion}} </p>
+          </div>
+          <div class="row">
+            <p class="col text-start">Ciudad de nacimiento: {{paciente.ciudadNacimiento}} </p>
+            <p class="col text-start">Ciudad de residencia: {{paciente.ciudadResidencia}} </p>
+            <p class="col text-start">Dirección: {{paciente.direccion}} </p>
+          </div>
+          <div class="row border-bottom">
+            <p class="col text-start">Teléfono: {{paciente.celular}} </p>
+            <p class="col text-start">Estado civil: {{paciente.estadoCivil}} </p>
+            <p class="col text-start">Servicio de salud: {{paciente.servicioSalud}} </p>
+          </div>
+
+          <p class="fw-bold mt-2">Acudiente</p>
+          <div class="row mt-2">
+            <p class="col text-start">Acudiente: {{acudiente.nombre}} {{acudiente.apellido}} </p>
+            <p class="col text-start">Parentesco: {{acudiente.parentesco}} </p>
+          </div>
+          <div class="row border-bottom">
+            <p class="col text-start">Edad: {{edadAcudiente}} </p>
+            <p class="col text-start">Teléfono: {{acudiente.telefono}} </p>
+          </div>
+
+        </div>
+      </div>
+
+
+
+      <div class="row ps-4">
+
+        <!----- Esto seria lo que apareceria si es un historial de odontologia ----->
+
+
+
+        <!----- Esto seria lo que apareceria si es un historial de ortodoncia ----->
+
+        <p class="fw-bold mt-2">Historial Clínico de Ortodoncia</p>
+
+        <div class="row mt-2 border border-2">
+          <p class="col text-start border-end">Linea media: {{ortodoncia. linea_media }} </p>
+          <p class="col text-start">Overjet: {{ortodoncia.overjet }} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Overbite: {{ortodoncia.overbite }} </p>
+          <p class="col text-start">Perdida de dientes: {{ortodoncia.perdida_dientes }} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Migraciones: {{ortodoncia.migraciones }} </p>
+          <p class="col text-start">Asimetría facial: {{ortodoncia.asimentria_facial }} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Apinamiento superior: {{ortodoncia.apinamiento_superior }} </p>
+          <p class="col text-start">Apinamiento inferior: {{ortodoncia.apinamiento_inferior }} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Perfil: {{ortodoncia.perfil }} </p>
+          <p class="col text-start">Hábitos de dientes: {{ortodoncia.habitos }} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Relación canina derecha: {{ortodoncia.relacion_canina_derecha }} </p>
+          <p class="col text-start">Relación canina izquierda: {{ortodoncia.relacion_canina_izquierda }} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Relación molar derecha: {{ortodoncia.relacion_molar_derecha }} </p>
+          <p class="col text-start">Relación molar izquierda: {{ortodoncia.relacion_molar_izquierda }} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Mal posición dental superior:
+            {{ortodoncia.mal_posicion_dental_superior }} </p>
+          <p class="col text-start">Mal posición dental inferior: {{ortodoncia.mal_posicion_dental_inferior }} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Mordida cruzada: {{ortodoncia.mordida_cruzada }} </p>
+          <p class="col text-start">Otros: {{ortodoncia.otros }} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Pronóstico: {{ortodoncia.pronostico  }} </p>
+          <p class="col text-start">Plan de tratamiento: {{ortodoncia.plan_de_tratamiento  }} </p>
+        </div>
+
+
+
+        <p class="fw-bold mt-2">Anamnesis</p>
+
+        <div class="row mt-2 border border-2">
+          <p class="col text-start border-end">Hipertensión: {{anamnesis.hipertencion ? 'Si' : 'No '}} </p>
+          <p class="col text-start border-end">Enfermedades respiratorias:
+            {{anamnesis.enfe_respiratorias ? 'Si' : 'No'}} </p>
+          <p class="col text-start">Cardiopatias: {{anamnesis.cardiopatias ? 'Si' : 'No'}} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Sistema digestivo: {{anamnesis.sistema_digestivo ? 'Si' : 'No'}} </p>
+          <p class="col text-start border-end">Fiebre reumatica: {{anamnesis.fiebre_reumatica ? 'Si' : 'No'}} </p>
+          <p class="col text-start">Hepatitis: {{anamnesis.hepatitis ? 'Si' : 'No'}} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Enfermedades renales: {{anamnesis.enfer_renales ? 'Si' : 'No'}} </p>
+          <p class="col text-start border-end">Enfermedades gastrointestinales:
+            {{anamnesis.enfer_gastrointestinales ? 'Si' : 'No'}} </p>
+          <p class="col text-start">Quirurgico: {{anamnesis.quirurgico ? 'Si' : 'No'}} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Traumático: {{anamnesis.traumatico ? 'Si' : 'No'}} </p>
+          <p class="col text-start border-end">Tratamiento médico: {{anamnesis.tratamiento_medico ? 'Si' : 'No'}} </p>
+          <p class="col text-start">Toma medicamentos: {{anamnesis.toma_medicamento ? 'Si' : 'No'}} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Alergia:{{anamnesis.alergia ? 'Si' : 'No'}} </p>
+          <p class="col text-start border-end">Embarazo:{{anamnesis.embarazo ? 'Si' : 'No'}} </p>
+          <p class="col text-start">Diabetes:{{anamnesis.diabetes ? 'Si' : 'No'}} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Neoplasias: {{anamnesis.neoplasias ? 'Si' : 'No'}} </p>
+          <p class="col text-start border-end">Enfermedadad hemorrogica: {{anamnesis.enfer_hemorrogicas ? 'Si' : 'No'}}
+          </p>
+          <p class="col text-start">Nf neurologicas: {{anamnesis.nf_neurologicas ? 'Si' : 'No'}} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Grupo sanguíneo: {{anamnesis.grupo_sangineo}} </p>
+          <p class="col text-start">Rh: {{anamnesis.rh}}</p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="text-start">Observaciones: {{anamnesis.observaciones}}</p>
+        </div>
+
+
+        <!-------------------------------------------------------------------------->
+
+      </div>
+
+      <!-------------------------------------------------------------------------->
+      <button id="myButton" type="button" class="btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#ModalEditarInformacion">
+        Launch demo modal
+      </button>
+
+      <!-- Modal -->
+      <div class="modal fade" #modalEditarInformacion id="ModalEditarInformacion" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title" id="exampleModalLabel">Editar datos</h2>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+              <h1 class="fw-bold as">Datos paciente </h1>
+
+              <form #myForm="ngForm">
+                <div class="containerForm">
+
+
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="paciente.id" (blur)="validarNumeroDocumento(paciente.id)" name="pacienteId"
+                      required type="text" class="form-control" id="floatingInputN" placeholder="ID" maxlength="30"
+                      onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+
+                    <label for="floatingInput">Numero Documento</label>
+
+                    <div
+                      *ngIf=" !validDoc ||   myForm.controls['pacienteId']?.invalid && (myForm.controls['pacienteId']?.dirty || myForm.controls['pacienteId']?.touched)">
+                      <div *ngIf="myForm.controls['pacienteId']?.errors?.['required']">Campo obligatorio.</div>
+                      <div *ngIf="!validDoc">Paciente Existente.</div>
+                    </div>
+
+
+                  </div>
+
+
+                  <div class="tipoId">
+
+                    <div class="form-check form-check-inline" id="CC">
+                      <input [(ngModel)]="paciente.tipoID" required name="pacientetipoId" class="form-check-input"
+                        type="radio" name="inlineRadioOptions" id="inlineRadio1" value="CC">
+                      <label class="form-check-label" for="inlineRadio1">C.C</label>
+
+
+                    </div>
+
+
+                    <div class="form-check form-check-inline" id="TI">
+                      <input [(ngModel)]="paciente.tipoID" required name="pacientetipoId" class="form-check-input"
+                        type="radio" name="inlineRadioOptions" id="inlineRadio2" value="TI">
+                      <label class="form-check-label" for="inlineRadio2">T.I</label>
+                    </div>
+
+                    <div class="form-check form-check-inline" id="PAS">
+                      <input [(ngModel)]="paciente.tipoID" required name="pacientetipoId" class="form-check-input"
+                        type="radio" name="inlineRadioOptions" id="inlineRadio3" value="PAS">
+                      <label class="form-check-label" for="inlineRadio3">PAS</label>
+                    </div>
+
+                    <div class="form-check form-check-inline" id="CE">
+                      <input [(ngModel)]="paciente.tipoID" required name="pacientetipoId" class="form-check-input"
+                        type="radio" name="inlineRadioOptions" id="inlineRadio4" value="CE">
+                      <label class="form-check-label" for="inlineRadio4">CE</label>
+                    </div>
+
+                    <div class="form-check form-check-inline" id="CEX">
+                      <input [(ngModel)]="paciente.tipoID" required name="pacientetipoId" class="form-check-input"
+                        type="radio" name="inlineRadioOptions" id="inlineRadio5" value="CEX">
+                      <label class="form-check-label" for="inlineRadio5">CEX</label>
+                    </div>
+
+
+                  </div>
+
+
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="paciente.nombre" name="pacienteNombre" required type="text" class="form-control"
+                      placeholder="name">
+                    <label for="floatingInput">Nombres</label>
+
+                    <div
+                      *ngIf="myForm.controls['pacienteNombre']?.invalid && (myForm.controls['pacienteNombre']?.dirty || myForm.controls['pacienteNombre']?.touched)">
+                      <div *ngIf="myForm.controls['pacienteNombre']?.errors?.['required']">Campo obligatorio.</div>
+                    </div>
+
+                  </div>
+
+
+
+                  <div class="datepiker">
+
+                    <input id="fromDate" type="date" class="mb-2" [(ngModel)]="paciente.fechaNacimiento"
+                      name="fechaNacimiento">
+
+
+                    <div
+                      *ngIf="myForm.controls['pacientefecha']?.invalid && (myForm.controls['pacientefecha']?.dirty || myForm.controls['pacientefecha']?.touched)">
+                      <div *ngIf="myForm.controls['pacientefecha']?.errors?.['required']">Campo obligatorio.</div>
+                    </div>
+
+
+                  </div>
+
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="paciente.apellido" required type="text" class="form-control" id="floatingInput"
+                      placeholder="A" name="Apellidos">
+                    <label for="floatingInput">Apellidos</label>
+
+                    <div
+                      *ngIf="myForm.controls['Apellidos']?.invalid && (myForm.controls['Apellidos']?.dirty || myForm.controls['Apellidos']?.touched)">
+                      <div *ngIf="myForm.controls['Apellidos']?.errors?.['required']">Campo obligatorio.</div>
+                    </div>
+
+                  </div>
+
+
+                  <div class="sexo">
+                    <label>Género</label>
+                    <div class="row">
+                      <div class="col-md-8">
+
+                        <select [(ngModel)]="paciente.genero" required name="pacienteGenero" class="form-select"
+                          id="genero">
+                          <option value="" selected disabled>Selecione una opción...</option>
+                          <option value="M">Masculino</option>
+                          <option value="F">Femenino</option>
+                        </select>
+
+                        <div
+                          *ngIf="myForm.controls['pacienteGenero']?.invalid && (myForm.controls['pacienteGenero']?.dirty || myForm.controls['pacienteGenero']?.touched)">
+                          <div *ngIf="myForm.controls['pacienteGenero']?.errors?.['required']">Campo obligatorio.
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="paciente.estadoCivil" required type="text" class="form-control"
+                      id="floatingInput" placeholder="name" name="EstadoCivil">
+                    <label for="floatingInput">Estado Civil</label>
+
+                    <div
+                      *ngIf="myForm.controls['EstadoCivil']?.invalid && (myForm.controls['EstadoCivil']?.dirty || myForm.controls['EstadoCivil']?.touched)">
+                      <div *ngIf="myForm.controls['EstadoCivil']?.errors?.['required']">Campo obligatorio.</div>
+                    </div>
+                  </div>
+
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="paciente.ciudadNacimiento" required type="text" class="form-control"
+                      id="floatingInput" placeholder="A" name="CiudadNacimiento">
+                    <label for="floatingInput">Ciudad de nacimiento</label>
+
+                    <div
+                      *ngIf="myForm.controls['CiudadNacimiento']?.invalid && (myForm.controls['CiudadNacimiento']?.dirty || myForm.controls['CiudadNacimiento']?.touched)">
+                      <div *ngIf="myForm.controls['CiudadNacimiento']?.errors?.['required']">Campo obligatorio.</div>
+                    </div>
+
+                  </div>
+
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="paciente.ocupacion" required type="text" class="form-control" id="floatingInput"
+                      placeholder="A" name="Ocupacion">
+                    <label for="floatingInput">Ocupacion</label>
+
+                    <div
+                      *ngIf="myForm.controls['Ocupacion']?.invalid && (myForm.controls['Ocupacion']?.dirty || myForm.controls['Ocupacion']?.touched)">
+                      <div *ngIf="myForm.controls['Ocupacion']?.errors?.['required']">Campo obligatorio.</div>
+                    </div>
+
+                  </div>
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="paciente.servicioSalud" required type="text" class="form-control"
+                      id="floatingInput" placeholder="A" name="ServicioSalud">
+                    <label for="floatingInput">Servicio de salud</label>
+
+                    <div
+                      *ngIf="myForm.controls['ServicioSalud']?.invalid && (myForm.controls['ServicioSalud']?.dirty || myForm.controls['ServicioSalud']?.touched)">
+                      <div *ngIf="myForm.controls['ServicioSalud']?.errors?.['required']">Campo obligatorio.</div>
+                    </div>
+
+                  </div>
+
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="paciente.ciudadResidencia" required type="text" class="form-control"
+                      id="floatingInput" placeholder="A" name="CiudadResidencia">
+                    <label for="floatingInput">Ciudad de residencia</label>
+
+                    <div
+                      *ngIf="myForm.controls['CiudadResidencia']?.invalid && (myForm.controls['CiudadResidencia']?.dirty || myForm.controls['CiudadResidencia']?.touched)">
+                      <div *ngIf="myForm.controls['CiudadResidencia']?.errors?.['required']">Campo obligatorio.</div>
+                    </div>
+                  </div>
+
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="paciente.direccion" required type="text" class="form-control" id="floatingInput"
+                      placeholder="A" name="Direccion">
+                    <label for="floatingInput">Dirección</label>
+
+                    <div
+                      *ngIf="myForm.controls['Direccion']?.invalid && (myForm.controls['Direccion']?.dirty || myForm.controls['Direccion']?.touched)">
+                      <div *ngIf="myForm.controls['Direccion']?.errors?.['required']">Campo obligatorio.</div>
+                    </div>
+
+                  </div>
+
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="paciente.celular" required type="text" class="form-control" id="floatingInput"
+                      placeholder="A" name="telefono"
+                      onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                    <label for="floatingInput">Numero de celular</label>
+
+                    <div
+                      *ngIf="myForm.controls['telefono']?.invalid && (myForm.controls['telefono']?.dirty || myForm.controls['telefono']?.touched)">
+                      <div *ngIf="myForm.controls['telefono']?.errors?.['required']">El telefono es obligatorio.</div>
+                    </div>
+
+                  </div>
+
+
+
+                </div>
+
+              </form>
+
+
+              <!----------------------- Acudiente -------------------------------------->
+
+              <h1 class="fw-bold as">Acudiente</h1>
+
+              <form #myForm="ngForm">
+
+                <div class="containerForm">
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="acudiente.nombre" name="nombre" required type="text" class="form-control"
+                      placeholder="name">
+                    <label for="floatingInput">Nombre</label>
+
+                  </div>
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="acudiente.parentesco" name="parentesco" required type="text"
+                      class="form-control" placeholder="name">
+                    <label for="floatingInput">Parentesco</label>
+
+                  </div>
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="acudiente.apellido" name="apellido" required type="text" class="form-control"
+                      placeholder="name">
+                    <label for="floatingInput">Apellido</label>
+
+                  </div>
+
+                  <div class="datepiker">
+
+                    <input id="fromDate" type="date" class="mb-2" [(ngModel)]="acudiente.fechaNacimiento"
+                      name="fechaNacimiento">
+
+
+                  </div>
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="acudiente.telefono" name="telefono" required type="text" class="form-control"
+                      placeholder="name"
+                      onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                    <label for="floatingInput">Numero celular</label>
+
+                  </div>
+
+                </div>
+              </form>
+
+              <!-------------------------------------------------------------------------->
+
+              <h1 class="fw-bold as"> Ortodoncia </h1>
+
+              <form #myForm="ngForm">
+                <div class="containerForm">
+
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="ortodoncia.linea_media" name="linea_media" type="text" class="form-control"
+                      id="lineaMediaInput" placeholder="Linea Media">
+                    <label for="lineaMediaInput" class="ms-3">Linea Media</label>
+                  </div>
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="ortodoncia.overjet" name="overjet" type="text" class="form-control"
+                      id="overjetInput" placeholder="Overjet">
+                    <label for="overjetInput" class="ms-3">Overjet</label>
+                  </div>
+
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="ortodoncia.overbite" name="overbite" type="text" class="form-control"
+                      id="overbiteInput" placeholder="Overbite">
+                    <label for="overbiteInput" class="ms-3">Overbite</label>
+                  </div>
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="ortodoncia.perdida_dientes" name="perdida_dientes" type="text"
+                      class="form-control" id="perdidaDientesInput" placeholder="Perdida de Dientes">
+                    <label for="perdidaDientesInput" class="ms-3">Perdida de Dientes</label>
+                  </div>
+
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="ortodoncia.migraciones" type="text" name="migraciones" class="form-control"
+                      id="migracionesInput" placeholder="Migraciones">
+                    <label for="migracionesInput" class="ms-3">Migraciones</label>
+                  </div>
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="ortodoncia.asimentria_facial" name="asimentria_facial" type="text"
+                      class="form-control" id="asimetriaFacialInput" placeholder="Asimetría Facial">
+                    <label for="asimetriaFacialInput" class="ms-3">Asimetría Facial</label>
+                  </div>
+
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="ortodoncia.apinamiento_superior" name="apinamiento_superior" type="text"
+                      class="form-control" id="apinamientoSuperiorInput" placeholder="Apinamiento Superior">
+                    <label for="apinamientoSuperiorInput" class="ms-3">Apinamiento Superior</label>
+                  </div>
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="ortodoncia.apinamiento_inferior" name="apinamiento_inferior" type="text"
+                      class="form-control" id="apinamientoInferiorInput" placeholder="Apinamiento Inferior">
+                    <label for="apinamientoInferiorInput" class="ms-3">Apinamiento Inferior</label>
+                  </div>
+
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="ortodoncia.perfil" name="perfil" type="text" class="form-control"
+                      id="perfilInput" placeholder="Perfil">
+                    <label for="perfilInput" class="ms-3">Perfil</label>
+                  </div>
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="ortodoncia.habitos" name="habitos" type="text" class="form-control"
+                      id="habitosInput" placeholder="Hábitos">
+                    <label for="habitosInput" class="ms-3">Hábitos</label>
+                  </div>
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="ortodoncia.relacion_canina_derecha" name="relacion_canina_derecha" type="text"
+                      class="form-control" id="relacionCaninaDerechaInput" placeholder="Relación Canina Derecha">
+                    <label for="relacionCaninaDerechaInput" class="ms-3">Relación Canina Derecha</label>
+                  </div>
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="ortodoncia.relacion_canina_izquierda" name="relacion_canina_izquierda"
+                      type="text" class="form-control" id="relacionCaninaIzquierdaInput"
+                      placeholder="Relación Canina Izquierda">
+                    <label for="relacionCaninaIzquierdaInput" class="ms-3">Relación Canina Izquierda</label>
+                  </div>
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="ortodoncia.relacion_molar_derecha" name="relacion_molar_derecha" type="text"
+                      class="form-control" id="relacionMolarDerechaInput" placeholder="Relación Molar Derecha">
+                    <label for="relacionMolarDerechaInput" class="ms-3">Relación Molar Derecha</label>
+                  </div>
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="ortodoncia.relacion_molar_izquierda" name="relacion_molar_izquierda" type="text"
+                      class="form-control" id="relacionMolarIzquierdaInput" placeholder="Relación Molar Izquierda">
+                    <label for="relacionMolarIzquierdaInput" class="ms-3">Relación Molar Izquierda</label>
+                  </div>
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="ortodoncia.mal_posicion_dental_superior" name="mal_posicion_dental_superior"
+                      type="text" class="form-control" id="malPosicionDentalSuperiorInput"
+                      placeholder="Mal Posición Dental Superior">
+                    <label for="malPosicionDentalSuperiorInput" class="ms-3">Mal Posición Dental Superior</label>
+                  </div>
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="ortodoncia.mal_posicion_dental_inferior" name="mal_posicion_dental_inferior"
+                      type="text" class="form-control" id="malPosicionDentalInferiorInput"
+                      placeholder="Mal Posición Dental Inferior">
+                    <label for="malPosicionDentalInferiorInput" class="ms-3">Mal Posición Dental Inferior</label>
+                  </div>
+
+                  <div class="form-floating ">
+                    <input [(ngModel)]="ortodoncia.mordida_cruzada" name="mordida_cruzada" type="text"
+                      class="form-control" id="mordidaCruzadaInput" placeholder="Mordida Cruzada">
+                    <label for="mordidaCruzadaInput" class="ms-3">Mordida Cruzada</label>
+                  </div>
+
+                  <div class="form-floating ">
+                    <input [(ngModel)]="ortodoncia.otros" name="otros" type="text" class="form-control"
+                      id="otrosOrtodonciaInput" placeholder="Otros">
+                    <label for="otrosOrtodonciaInput" class="ms-3">Otros</label>
+                  </div>
+
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="ortodoncia.pronostico" name="pronostico" type="text" class="form-control"
+                      id="pronosticoInput" placeholder="Pronóstico">
+                    <label for="pronosticoInput" class="ms-3">Pronóstico</label>
+                  </div>
+
+                  <div class="form-floating ">
+                    <textarea [(ngModel)]="ortodoncia.plan_de_tratamiento" name="plan_de_tratamiento"
+                      class="form-control" placeholder="Plan de Tratamiento" id="planTratamientoOrtodonciaTextarea"
+                      style="height: 100px"></textarea>
+                    <label for="planTratamientoOrtodonciaTextarea" class="ms-3">Plan de Tratamiento</label>
+                  </div>
+
+
+                </div>
+
+              </form>
+
+
+
+
+              <!-------------------------------------------------------------------------->
+
+              <h1 class="fw-bold as">Anamnesis</h1>
+
+              <form #myForm="ngForm">
+
+
+                <div class="form_ananmesis">
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.hipertencion" name="hipertencion" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked1">
+                    <label class="form-check-label" for="flexCheckChecked1">
+                      Hiper tencion
+                    </label>
+                  </div>
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.enfe_respiratorias" name="enfe_respiratorias" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked2">
+                    <label class="form-check-label" for="flexCheckChecked2">
+                      Enfermedades respiratorias
+                    </label>
+                  </div>
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.cardiopatias" name="cardiopatias" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked3">
+                    <label class="form-check-label" for="flexCheckChecked3">
+                      Cardiopatias
+                    </label>
+                  </div>
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.sistema_digestivo" name="sistema_digestivo" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked4">
+                    <label class="form-check-label" for="flexCheckChecked4">
+                      Sistema digestivo
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.fiebre_reumatica" name="fiebre_reumatica" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked5">
+                    <label class="form-check-label" for="flexCheckChecked5">
+                      Fiebre reumatica
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.hepatitis" name="hepatitis" class="form-check-input" type="checkbox"
+                      value="si" id="flexCheckChecked6">
+                    <label class="form-check-label" for="flexCheckChecked6">
+                      Hepatitis
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.enfer_renales" name="enfer_renales" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked7">
+                    <label class="form-check-label" for="flexCheckChecked7">
+                      Enfermedades renales
+                    </label>
+                  </div>
+
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.enfer_gastrointestinales" name="enfer_gastrointestinales"
+                      class="form-check-input" type="checkbox" value="si" id="flexCheckChecked8">
+                    <label class="form-check-label" for="flexCheckChecked8">
+                      Enfermedades gastrointestinales
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.quirurgico" name="quirurgico" class="form-check-input" type="checkbox"
+                      value="si" id="flexCheckChecked9">
+                    <label class="form-check-label" for="flexCheckChecked9">
+                      Quirurgico
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.traumatico" name="traumatico" class="form-check-input" type="checkbox"
+                      value="si" id="flexCheckChecked10">
+                    <label class="form-check-label" for="flexCheckChecked10">
+                      Traumatico
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.tratamiento_medico" name="tratamiento_medico" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked11">
+                    <label class="form-check-label" for="flexCheckChecked11">
+                      Tratamiento medico
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.toma_medicamento" name="toma_medicamento" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked111">
+                    <label class="form-check-label" for="flexCheckChecked111">
+                      Toma Medicamento
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.alergia" name="alergia" class="form-check-input" type="checkbox"
+                      value="si" id="flexCheckChecked12">
+                    <label class="form-check-label" for="flexCheckChecked12">
+                      Alergias
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.embarazo" name="embarazo" class="form-check-input" type="checkbox"
+                      value="si" id="flexCheckChecked13">
+                    <label class="form-check-label" for="flexCheckChecked13">
+                      Embarazo
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.diabetes" name="diabetes" class="form-check-input" type="checkbox"
+                      value="si" id="flexCheckChecked14">
+                    <label class="form-check-label" for="flexCheckChecked14">
+                      Diabetes
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.neoplasias" name="neoplasias" class="form-check-input" type="checkbox"
+                      value="si" id="flexCheckChecked15">
+                    <label class="form-check-label" for="flexCheckChecked15">
+                      Neoplasias
+                    </label>
+                  </div>
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.enfer_hemorrogicas" name="enfer_hemorrogicas" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked16">
+                    <label class="form-check-label" for="flexCheckChecked16">
+                      Enfermedad hemorragica
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.nf_neurologicas" name="nf_neurologicas" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked17">
+                    <label class="form-check-label" for="flexCheckChecked17">
+                      NF. neurologicas
+                    </label>
+                  </div>
+
+
+
+                  <div class="grupoSangineo" id="radioButtonA">
+                    <label for="text">Grupo sangineo: </label>
+                    <div class="form-check form-check-inline" id="A">
+                      <input [(ngModel)]="anamnesis.grupo_sangineo" class="form-check-input" type="radio"
+                        name="grupoSangineo" id="inlineRadio1" value="A">
+                      <label class="form-check-label" for="inlineRadio1">A</label>
+                    </div>
+
+                    <div class="form-check form-check-inline" id="B">
+                      <input [(ngModel)]="anamnesis.grupo_sangineo" class="form-check-input" type="radio"
+                        name="grupoSangineo" id="inlineRadio1" value="B">
+                      <label class="form-check-label" for="inlineRadio1">B</label>
+                    </div>
+
+                    <div class="form-check form-check-inline" id="AB">
+                      <input [(ngModel)]="anamnesis.grupo_sangineo" class="form-check-input" type="radio"
+                        name="grupoSangineo" id="inlineRadio1" value="AB">
+                      <label class="form-check-label" for="inlineRadio1">AB</label>
+                    </div>
+
+                    <div class="form-check form-check-inline" id="O">
+                      <input [(ngModel)]="anamnesis.grupo_sangineo" class="form-check-input" type="radio"
+                        name="grupoSangineo" id="inlineRadio1" value="O">
+                      <label class="form-check-label" for="inlineRadio1">O</label>
+                    </div>
+                  </div>
+
+
+                  <div class="rh" id="radioButtonA">
+                    <label for="text">RH: </label>
+                    <div class="form-check form-check-inline" id="+">
+                      <input [(ngModel)]="anamnesis.rh" class="form-check-input" type="radio" name="rh"
+                        id="inlineRadio1" value="+">
+                      <label class="form-check-label" for="inlineRadio1">+</label>
+                    </div>
+
+                    <div class="form-check form-check-inline" id="-">
+                      <input [(ngModel)]="anamnesis.rh" class="form-check-input" type="radio" name="rh"
+                        id="inlineRadio1" value="-">
+                      <label class="form-check-label" for="inlineRadio1">-</label>
+                    </div>
+                  </div>
+
+                  <div class="form-floating2" id="observaciones">
+                    <textarea [(ngModel)]="anamnesis.observaciones" name="observaciones" class="form-control"
+                      id="floatingInput" placeholder="planTratamiento" rows="1"></textarea>
+
+                    <label for="floatingInput">Observaciones</label>
+                  </div>
+
+                </div>
+              </form>
+
+              <!-------------------------------------------------------------------------->
+
+
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button (click)="actualizar()" type="button" class="btn btn-primary">Actualizar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal fin  -->
+
+
+    </div>
+
+
+  </div>
+</div>

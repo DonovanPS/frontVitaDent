@@ -1,0 +1,61 @@
+<div class="containerGlobal">
+
+  <app-navbar></app-navbar>
+
+
+
+  <div class="body">
+
+    <h1 class="fw-bold">Buscador de Historiales Clínicos</h1>
+
+    <p>Digíte el número de identificación</p>
+
+    <form #myForm="ngForm">
+
+
+
+      <div class="containerForm">
+        <div class="form-floating">
+
+          <input [(ngModel)]="id" type="text" (input)="validarNumeroDocumento(id)" name="pacienteId" required value=""
+            maxlength="14" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;"
+            class="form-control" id="floatingInput" placeholder="name">
+          <label for="floatingInput">Numero Documento</label>
+
+          <div *ngIf=" validDoc ||   myForm.controls['id']?.invalid ">
+
+            <div *ngIf="validDoc ">Paciente No Existente.</div>
+          </div>
+
+
+        </div>
+
+      </div>
+
+      <button #buscar [disabled]="!myForm.valid" class="btn btn-primary" disabled
+        (click)="consultarHistorias()">Buscar</button>
+
+      <div class="contenedorTable">
+        <div class="table">
+          <p style="color: rgb(255, 255, 255); margin-left: 1%;">Resultados de la búsqueda:</p>
+        </div>
+
+        <app-son-history-search *ngIf="showSonHistorySearchOdontologia" [dataPaciente]="dataPacienteOdontologia">
+        </app-son-history-search>
+
+        <app-son-history-search *ngIf="showSonHistorySearchOrtodoncia" [dataPaciente]="dataPacienteOrtodoncia">
+        </app-son-history-search>
+
+      </div>
+    </form>
+
+
+
+
+  </div>
+
+
+
+
+
+</div>

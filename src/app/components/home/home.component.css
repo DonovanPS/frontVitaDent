@@ -1,0 +1,133 @@
+
+.containerhome{
+ 
+  background-color:  rgb(224, 224, 224);
+  
+  width: 90%;
+  max-width: 2000px;
+  
+
+  margin: 0 auto;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  min-width: 241px;
+ 
+}
+
+
+.containerBody {
+  
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  justify-content: center;
+  box-sizing: border-box;
+
+  min-width: 241px;
+
+
+}
+
+
+.container {
+  width: 44%;
+  height: 350px;
+  margin-top: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+
+  margin-left: 3%;
+  margin-right: 3%;
+  float: left;
+
+
+
+}
+
+
+
+.container .card {
+ 
+ 
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  
+  text-align: center;
+  transition: all 0.25s;
+
+
+
+}
+
+
+.card:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.containerLogo:hover{
+    transform: translateY(-2px);
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.btn {
+
+  width: 40%;
+  margin-left: 5%;
+  background-color: rgb(171, 65, 129);
+  border-color: rgb(171, 65, 129);
+}
+
+
+.btn:hover {
+  background-color: rgb(216, 73, 159);
+}
+
+
+@media screen and (max-width: 767px) {
+
+  .containerhome{
+    height: 100%;
+  }
+  .container {
+  
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-sizing: border-box;
+   
+    margin: 0 auto;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    float: none;
+    
+    
+  }
+
+  .btn {
+
+    width: 45%;
+    margin: 2%;
+
+  }
+
+  .containerBody {
+    margin-top: 5%;
+  }
+
+  .container .card{
+  
+  height: 90%;
+ }
+}

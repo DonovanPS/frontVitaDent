@@ -1,0 +1,1103 @@
+<div class="card mx-auto mb-3" style="overflow-y: scroll;width: 90%; max-height: 320px;">
+  <div class="card-body">
+
+    <div class="container">
+      <div class="row">
+        <img src="https://cdn.pixabay.com/photo/2017/11/10/05/48/user-2935527_1280.png" class="col-2 img-fluid"
+          alt="Foto usuario" style="width: 13%; height: 13%;">
+        <div class="container col-10">
+
+          <p class="fw-bold">Datos básicos</p>
+          <div class="row">
+            <p class="col text-start">Nombre: {{paciente.nombre}} {{paciente.apellido}} </p>
+          </div>
+          <div class="row">
+            <p class="col text-start">Tipo de documento: {{paciente.tipoID}} </p>
+            <p class="col text-start">No: {{paciente.id}} </p>
+            <p class="col text-start">Fecha de nacimiento: {{paciente.fechaNacimiento  | date: 'yyyy-MM-dd'}} </p>
+          </div>
+          <div class="row">
+            <p class="col text-start">Edad: {{edad}} </p>
+            <p class="col text-start">Sexo: {{paciente.genero}} </p>
+            <p class="col text-start">Ocupación: {{paciente.ocupacion}} </p>
+          </div>
+          <div class="row">
+            <p class="col text-start">Ciudad de nacimiento: {{paciente.ciudadNacimiento}} </p>
+            <p class="col text-start">Ciudad de residencia: {{paciente.ciudadResidencia}} </p>
+            <p class="col text-start">Dirección: {{paciente.direccion}} </p>
+          </div>
+          <div class="row border-bottom">
+            <p class="col text-start">Teléfono: {{paciente.celular}} </p>
+            <p class="col text-start">Estado civil: {{paciente.estadoCivil}} </p>
+            <p class="col text-start">Servicio de salud: {{paciente.servicioSalud}} </p>
+          </div>
+
+          <p class="fw-bold mt-2">Acudiente</p>
+          <div class="row mt-2">
+            <p class="col text-start">Acudiente: {{acudiente.nombre}} {{acudiente.apellido}} </p>
+            <p class="col text-start">Parentesco: {{acudiente.parentesco}} </p>
+          </div>
+          <div class="row border-bottom">
+            <p class="col text-start">Edad: {{edadAcudiente}} </p>
+            <p class="col text-start">Teléfono: {{acudiente.telefono}} </p>
+          </div>
+
+        </div>
+      </div>
+
+
+
+      <div class="row ps-4">
+
+        <!----- Esto seria lo que apareceria si es un historial de odontologia ----->
+
+        <p class="fw-bold mt-2">Historial Clínico de Odontología</p>
+
+        <div class="row mt-2 border border-2">
+          <p class="col text-start border-end">Higiene oral: {{odontologia.higiene_oral}} </p>
+          <p class="col text-start border-end">Cepillado: {{odontologia.cepillado}} </p>
+          <p class="col text-start">Veces de cepillado: {{odontologia.numero_cepillado}} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Enjuague bucal: {{odontologia.enjuague_bucal}} </p>
+          <p class="col text-start">Seda dental: {{odontologia.seda_dental}} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start">Plan de tratamiento: {{odontologia.plan_tratamiento}} </p>
+        </div>
+
+
+        <p class="fw-bold mt-2">Anamnesis</p>
+
+        <div class="row mt-2 border border-2">
+          <p class="col text-start border-end">Hipertensión: {{anamnesis.hipertencion ? 'Si' : 'No'}} </p>
+          <p class="col text-start border-end">Enfermedades respiratorias:
+            {{anamnesis.enfe_respiratorias ? 'Si' : 'No'}} </p>
+          <p class="col text-start">Cardiopatias: {{anamnesis.cardiopatias ? 'Si' : 'No'}} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Sistema digestivo: {{anamnesis.sistema_digestivo ? 'Si' : 'No'}} </p>
+          <p class="col text-start border-end">Fiebre reumatica: {{anamnesis.fiebre_reumatica ? 'Si' : 'No'}} </p>
+          <p class="col text-start">Hepatitis: {{anamnesis.hepatitis ? 'Si' : 'No'}} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Enfermedades renales: {{anamnesis.enfer_renales ? 'Si' : 'No'}} </p>
+          <p class="col text-start border-end">Enfermedades gastrointestinales:
+            {{anamnesis.enfer_gastrointestinales ? 'Si' : 'No'}} </p>
+          <p class="col text-start">Quirurgico: {{anamnesis.quirurgico ? 'Si' : 'No'}} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Traumático: {{anamnesis.traumatico ? 'Si' : 'No'}} </p>
+          <p class="col text-start border-end">Tratamiento médico: {{anamnesis.tratamiento_medico ? 'Si' : 'No'}} </p>
+          <p class="col text-start">Toma medicamentos: {{anamnesis.toma_medicamento ? 'Si' : 'No'}} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Alergia:{{anamnesis.alergia ? 'Si' : 'No'}} </p>
+          <p class="col text-start border-end">Embarazo:{{anamnesis.embarazo ? 'Si' : 'No'}} </p>
+          <p class="col text-start">Diabetes:{{anamnesis.diabetes ? 'Si' : 'No'}} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Neoplasias: {{anamnesis.neoplasias ? 'Si' : 'No'}} </p>
+          <p class="col text-start border-end">Enfermedadad hemorrogica: {{anamnesis.enfer_hemorrogicas ? 'Si' : 'No'}}
+          </p>
+          <p class="col text-start">Nf neurologicas: {{anamnesis.nf_neurologicas ? 'Si' : 'No'}} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Grupo sanguíneo: {{anamnesis.grupo_sangineo}} </p>
+          <p class="col text-start">Rh: {{anamnesis.rh}}</p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="text-start">Observaciones: {{anamnesis.observaciones}}</p>
+        </div>
+
+
+        <p class="fw-bold mt-2">Examen Tejidos Blandos</p>
+
+        <div class="row mt-2 border border-2">
+          <p class="col text-start border-end">Labios: {{tejidos_blandos.labios ? 'Si' : 'No'}} </p>
+          <p class="col text-start border-end">Carrillos: {{tejidos_blandos.carrillos ? 'Si' : 'No'}} </p>
+          <p class="col text-start">Frenillos: {{tejidos_blandos.frenillos ? 'Si' : 'No'}} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Encías: {{tejidos_blandos.encias ? 'Si' : 'No'}} </p>
+          <p class="col text-start border-end">Paladar: {{tejidos_blandos.paladar ? 'Si' : 'No'}} </p>
+          <p class="col text-start">Lengua: {{tejidos_blandos.lengua ? 'Si' : 'No'}} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Orofaringe: {{tejidos_blandos.orofaringe ? 'Si' : 'No'}} </p>
+          <p class="col text-start border-end">Glándulas: {{tejidos_blandos.glandulas ? 'Si' : 'No'}} </p>
+          <p class="col text-start">Piso de la boca: {{tejidos_blandos.piso_boca ? 'Si' : 'No'}} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col-4 text-start border-end">Músculos masticatorios:
+            {{tejidos_blandos.musculos_masticatorios ? 'Si' : 'No'}} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="text-start">Otros: {{tejidos_blandos.otros}} </p>
+        </div>
+
+
+        <p class="fw-bold mt-2">Examen Tejidos Dentales</p>
+
+        <div class="row mt-2 border border-2">
+          <p class="col text-start border-end">Supernumerarios: {{tejidos_dentales.supernumerarios ? 'Si' : 'No'}} </p>
+          <p class="col text-start border-end">Abrasion: {{tejidos_dentales.abrasion ? 'Si' : 'No'}}</p>
+          <p class="col text-start">Incluidos: {{tejidos_dentales.incluidos ? 'Si' : 'No'}}</p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col text-start border-end">Maloclusiones: {{tejidos_dentales.maloclusiones ? 'Si' : 'No'}}</p>
+          <p class="col text-start border-end">Cambio de color: {{tejidos_dentales.cambio_color ? 'Si' : 'No'}}</p>
+          <p class="col text-start">Trauma: {{tejidos_dentales.trauma ? 'Si' : 'No'}}</p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col-4 text-start border-end">Patología pulpar: {{tejidos_dentales.patologia_pulmonar ? 'Si' : 'No'}}
+          </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="text-start">Otros: {{tejidos_dentales.otros}} </p>
+        </div>
+
+
+        <p class="fw-bold mt-2">Examen Periodontal</p>
+
+        <div class="row mt-2 border border-2">
+          <p class="col text-start border-end">Bolsas: {{examen_periodontal.bolsas}} </p>
+          <p class="col text-start border-end">Movilidad: {{examen_periodontal.movilidad}} </p>
+          <p class="col text-start">Placa blanda: {{examen_periodontal.placaBlanca}} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="col-4 text-start border-end">Cálculos: {{examen_periodontal.calculos}} </p>
+        </div>
+        <div class="row border-end border-start border-bottom border-2">
+          <p class="text-start">Observaciones: {{examen_periodontal.observaciones}} </p>
+        </div>
+
+        <!-------------------------------------------------------------------------->
+
+
+
+      </div>
+
+      <button id="myButton" type="button" class="btn btn-primary" data-bs-toggle="modal"
+        data-bs-target="#ModalEditarInformacion">
+        Launch demo modal
+      </button>
+
+
+      <!-- Modal -->
+      <div class="modal fade" #modalEditarInformacion id="ModalEditarInformacion" tabindex="-1"
+        aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title" id="exampleModalLabel">Editar datos</h2>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+
+              <h1 class="fw-bold as">Datos paciente </h1>
+
+              <form #myForm="ngForm">
+                <div class="containerForm">
+
+
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="paciente.id" (blur)="validarNumeroDocumento(paciente.id)" name="pacienteId"
+                      required type="text" class="form-control" id="floatingInputN" placeholder="ID" maxlength="30"
+                      onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+
+                    <label for="floatingInput">Numero Documento</label>
+
+                    <div
+                      *ngIf=" !validDoc ||   myForm.controls['pacienteId']?.invalid && (myForm.controls['pacienteId']?.dirty || myForm.controls['pacienteId']?.touched)">
+                      <div *ngIf="myForm.controls['pacienteId']?.errors?.['required']">Campo obligatorio.</div>
+                      <div *ngIf="!validDoc">Paciente Existente.</div>
+                    </div>
+
+
+                  </div>
+
+
+                  <div class="tipoId">
+
+                    <div class="form-check form-check-inline" id="CC">
+                      <input [(ngModel)]="paciente.tipoID" required name="pacientetipoId" class="form-check-input"
+                        type="radio" name="inlineRadioOptions" id="inlineRadio1" value="CC">
+                      <label class="form-check-label" for="inlineRadio1">C.C</label>
+
+
+                    </div>
+
+
+                    <div class="form-check form-check-inline" id="TI">
+                      <input [(ngModel)]="paciente.tipoID" required name="pacientetipoId" class="form-check-input"
+                        type="radio" name="inlineRadioOptions" id="inlineRadio2" value="TI">
+                      <label class="form-check-label" for="inlineRadio2">T.I</label>
+                    </div>
+
+                    <div class="form-check form-check-inline" id="PAS">
+                      <input [(ngModel)]="paciente.tipoID" required name="pacientetipoId" class="form-check-input"
+                        type="radio" name="inlineRadioOptions" id="inlineRadio3" value="PAS">
+                      <label class="form-check-label" for="inlineRadio3">PAS</label>
+                    </div>
+
+                    <div class="form-check form-check-inline" id="CE">
+                      <input [(ngModel)]="paciente.tipoID" required name="pacientetipoId" class="form-check-input"
+                        type="radio" name="inlineRadioOptions" id="inlineRadio4" value="CE">
+                      <label class="form-check-label" for="inlineRadio4">CE</label>
+                    </div>
+
+                    <div class="form-check form-check-inline" id="CEX">
+                      <input [(ngModel)]="paciente.tipoID" required name="pacientetipoId" class="form-check-input"
+                        type="radio" name="inlineRadioOptions" id="inlineRadio5" value="CEX">
+                      <label class="form-check-label" for="inlineRadio5">CEX</label>
+                    </div>
+
+
+                  </div>
+
+
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="paciente.nombre" name="pacienteNombre" required type="text" class="form-control"
+                      placeholder="name">
+                    <label for="floatingInput">Nombres</label>
+
+                    <div
+                      *ngIf="myForm.controls['pacienteNombre']?.invalid && (myForm.controls['pacienteNombre']?.dirty || myForm.controls['pacienteNombre']?.touched)">
+                      <div *ngIf="myForm.controls['pacienteNombre']?.errors?.['required']">Campo obligatorio.</div>
+                    </div>
+
+                  </div>
+
+
+
+                  <div class="datepiker">
+
+                    <input id="fromDate" type="date" class="mb-2" [(ngModel)]="paciente.fechaNacimiento"
+                      name="fechaNacimiento">
+
+
+                    <div
+                      *ngIf="myForm.controls['pacientefecha']?.invalid && (myForm.controls['pacientefecha']?.dirty || myForm.controls['pacientefecha']?.touched)">
+                      <div *ngIf="myForm.controls['pacientefecha']?.errors?.['required']">Campo obligatorio.</div>
+                    </div>
+
+
+                  </div>
+
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="paciente.apellido" required type="text" class="form-control" id="floatingInput"
+                      placeholder="A" name="Apellidos">
+                    <label for="floatingInput">Apellidos</label>
+
+                    <div
+                      *ngIf="myForm.controls['Apellidos']?.invalid && (myForm.controls['Apellidos']?.dirty || myForm.controls['Apellidos']?.touched)">
+                      <div *ngIf="myForm.controls['Apellidos']?.errors?.['required']">Campo obligatorio.</div>
+                    </div>
+
+                  </div>
+
+
+                  <div class="sexo">
+                    <label>Género</label>
+                    <div class="row">
+                      <div class="col-md-8">
+
+                        <select [(ngModel)]="paciente.genero" required name="pacienteGenero" class="form-select"
+                          id="genero">
+                          <option value="" selected disabled>Selecione una opción...</option>
+                          <option value="M">Masculino</option>
+                          <option value="F">Femenino</option>
+                        </select>
+
+                        <div
+                          *ngIf="myForm.controls['pacienteGenero']?.invalid && (myForm.controls['pacienteGenero']?.dirty || myForm.controls['pacienteGenero']?.touched)">
+                          <div *ngIf="myForm.controls['pacienteGenero']?.errors?.['required']">Campo obligatorio.
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="paciente.estadoCivil" required type="text" class="form-control"
+                      id="floatingInput" placeholder="name" name="EstadoCivil">
+                    <label for="floatingInput">Estado Civil</label>
+
+                    <div
+                      *ngIf="myForm.controls['EstadoCivil']?.invalid && (myForm.controls['EstadoCivil']?.dirty || myForm.controls['EstadoCivil']?.touched)">
+                      <div *ngIf="myForm.controls['EstadoCivil']?.errors?.['required']">Campo obligatorio.</div>
+                    </div>
+                  </div>
+
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="paciente.ciudadNacimiento" required type="text" class="form-control"
+                      id="floatingInput" placeholder="A" name="CiudadNacimiento">
+                    <label for="floatingInput">Ciudad de nacimiento</label>
+
+                    <div
+                      *ngIf="myForm.controls['CiudadNacimiento']?.invalid && (myForm.controls['CiudadNacimiento']?.dirty || myForm.controls['CiudadNacimiento']?.touched)">
+                      <div *ngIf="myForm.controls['CiudadNacimiento']?.errors?.['required']">Campo obligatorio.</div>
+                    </div>
+
+                  </div>
+
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="paciente.ocupacion" required type="text" class="form-control" id="floatingInput"
+                      placeholder="A" name="Ocupacion">
+                    <label for="floatingInput">Ocupacion</label>
+
+                    <div
+                      *ngIf="myForm.controls['Ocupacion']?.invalid && (myForm.controls['Ocupacion']?.dirty || myForm.controls['Ocupacion']?.touched)">
+                      <div *ngIf="myForm.controls['Ocupacion']?.errors?.['required']">Campo obligatorio.</div>
+                    </div>
+
+                  </div>
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="paciente.servicioSalud" required type="text" class="form-control"
+                      id="floatingInput" placeholder="A" name="ServicioSalud">
+                    <label for="floatingInput">Servicio de salud</label>
+
+                    <div
+                      *ngIf="myForm.controls['ServicioSalud']?.invalid && (myForm.controls['ServicioSalud']?.dirty || myForm.controls['ServicioSalud']?.touched)">
+                      <div *ngIf="myForm.controls['ServicioSalud']?.errors?.['required']">Campo obligatorio.</div>
+                    </div>
+
+                  </div>
+
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="paciente.ciudadResidencia" required type="text" class="form-control"
+                      id="floatingInput" placeholder="A" name="CiudadResidencia">
+                    <label for="floatingInput">Ciudad de residencia</label>
+
+                    <div
+                      *ngIf="myForm.controls['CiudadResidencia']?.invalid && (myForm.controls['CiudadResidencia']?.dirty || myForm.controls['CiudadResidencia']?.touched)">
+                      <div *ngIf="myForm.controls['CiudadResidencia']?.errors?.['required']">Campo obligatorio.</div>
+                    </div>
+                  </div>
+
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="paciente.direccion" required type="text" class="form-control" id="floatingInput"
+                      placeholder="A" name="Direccion">
+                    <label for="floatingInput">Dirección</label>
+
+                    <div
+                      *ngIf="myForm.controls['Direccion']?.invalid && (myForm.controls['Direccion']?.dirty || myForm.controls['Direccion']?.touched)">
+                      <div *ngIf="myForm.controls['Direccion']?.errors?.['required']">Campo obligatorio.</div>
+                    </div>
+
+                  </div>
+
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="paciente.celular" required type="text" class="form-control" id="floatingInput"
+                      placeholder="A" name="telefono"
+                      onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                    <label for="floatingInput">Numero de celular</label>
+
+                    <div
+                      *ngIf="myForm.controls['telefono']?.invalid && (myForm.controls['telefono']?.dirty || myForm.controls['telefono']?.touched)">
+                      <div *ngIf="myForm.controls['telefono']?.errors?.['required']">El telefono es obligatorio.</div>
+                    </div>
+
+                  </div>
+
+
+
+                </div>
+
+              </form>
+
+              <!-------------------------------------------------------------------------->
+
+              <h1 class="fw-bold as">Acudiente</h1>
+
+              <form #myForm="ngForm">
+
+                <div class="containerForm">
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="acudiente.nombre" name="nombre" required type="text" class="form-control"
+                      placeholder="name">
+                    <label for="floatingInput">Nombre</label>
+
+                  </div>
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="acudiente.parentesco" name="parentesco" required type="text"
+                      class="form-control" placeholder="name">
+                    <label for="floatingInput">Parentesco</label>
+
+                  </div>
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="acudiente.apellido" name="apellido" required type="text" class="form-control"
+                      placeholder="name">
+                    <label for="floatingInput">Apellido</label>
+
+                  </div>
+
+                  <div class="datepiker">
+
+                    <input id="fromDate" type="date" class="mb-2" [(ngModel)]="acudiente.fechaNacimiento"
+                      name="fechaNacimiento">
+
+
+                  </div>
+
+                  <div class="form-floating">
+                    <input [(ngModel)]="acudiente.telefono" name="telefono" required type="text" class="form-control"
+                      placeholder="name"
+                      onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                    <label for="floatingInput">Numero celular</label>
+
+                  </div>
+
+                </div>
+              </form>
+
+              <!-------------------------------------------------------------------------->
+
+
+              <h1 class="fw-bold as">Datos Odontologia</h1>
+
+              <form #myForm="ngForm">
+
+                <div class="form_odontologia">
+
+
+                  <div class="higiene" id="radioButton">
+
+                    <label for="text">Higiene oral: </label>
+                    <div class="form-check form-check-inline" id="B">
+                      <input [(ngModel)]="odontologia.higiene_oral" class="form-check-input" type="radio" name="higiene"
+                        id="higieneB" value="Bueno">
+                      <label class="form-check-label" for="higieneB">B</label>
+                    </div>
+
+                    <div class="form-check form-check-inline" id="R">
+                      <input [(ngModel)]="odontologia.higiene_oral" class="form-check-input" type="radio" name="higiene"
+                        id="higieneR" value="Regular">
+                      <label class="form-check-label" for="higieneR">R</label>
+                    </div>
+
+                    <div class="form-check form-check-inline" id="M">
+                      <input [(ngModel)]="odontologia.higiene_oral" class="form-check-input" type="radio" name="higiene"
+                        id="higieneM" value="Malo">
+                      <label class="form-check-label" for="higieneM">M</label>
+                    </div>
+
+                  </div>
+
+                  <div class="cepillado" id="radioButton">
+
+                    <label for="text">Cepillado: </label>
+                    <div class="form-check form-check-inline" id="SI">
+                      <input [(ngModel)]="odontologia.cepillado" class="form-check-input" type="radio" name="cepillado"
+                        id="cepilladoS" value="SI">
+                      <label class="form-check-label" for="cepilladoS">SI</label>
+                    </div>
+
+                    <div class="form-check form-check-inline" id="NO">
+                      <input [(ngModel)]="odontologia.cepillado" class="form-check-input" type="radio" name="cepillado"
+                        id="inlineRadio1" value="NO">
+                      <label class="form-check-label" for="inlineRadio1">NO</label>
+                    </div>
+
+                  </div>
+
+
+                  <div class="form-floating2" id="numero">
+                    <input [(ngModel)]="odontologia.numero_cepillado" type="text" class="form-control"
+                      id="floatingInput" placeholder="numeroCepillado" name="Numero_cepillado"  maxlength="30"
+                      onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+                    <label for="floatingInput">Numero Cepillado</label>
+                  </div>
+
+
+                  <div class="enjuague" id="radioButton">
+
+                    <label for="text">Enjuague bucal: </label>
+                    <div class="form-check form-check-inline" id="SI">
+                      <input [(ngModel)]="odontologia.enjuague_bucal" class="form-check-input" type="radio"
+                        name="enjuague" id="inlineRadio1" value="SI">
+                      <label class="form-check-label" for="inlineRadio1">SI</label>
+                    </div>
+
+                    <div class="form-check form-check-inline" id="NO">
+                      <input [(ngModel)]="odontologia.enjuague_bucal" class="form-check-input" type="radio"
+                        name="enjuague" id="inlineRadio1" value="NO">
+                      <label class="form-check-label" for="inlineRadio1">NO</label>
+                    </div>
+
+                  </div>
+
+                  <div class="seda" id="radioButton">
+
+                    <label for="text">Seda dental: </label>
+                    <div class="form-check form-check-inline" id="SI">
+                      <input [(ngModel)]="odontologia.seda_dental" class="form-check-input" type="radio" name="seda"
+                        id="inlineRadio1" value="SI">
+                      <label class="form-check-label" for="inlineRadio1">SI</label>
+                    </div>
+
+                    <div class="form-check form-check-inline" id="NO">
+                      <input [(ngModel)]="odontologia.seda_dental" class="form-check-input" type="radio" name="seda"
+                        id="inlineRadio1" value="NO">
+                      <label class="form-check-label" for="inlineRadio1">NO</label>
+                    </div>
+
+                  </div>
+
+
+
+                  <div class="form-floating2" id="plan">
+                    <textarea class="form-control" [(ngModel)]="odontologia.plan_tratamiento" name="plan_tratamiento"
+                      placeholder="planTratamiento" rows="1"></textarea>
+                    <label for="floatingInput">Plan de tratamiento</label>
+                  </div>
+
+
+
+
+
+                </div>
+
+              </form>
+
+              <!-------------------------------------------------------------------------->
+
+              <h1 class="fw-bold as">Anamnesis</h1>
+
+              <form #myForm="ngForm">
+
+
+                <div class="form_ananmesis">
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.hipertencion" name="hipertencion" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked1">
+                    <label class="form-check-label" for="flexCheckChecked1">
+                      Hiper tencion
+                    </label>
+                  </div>
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.enfe_respiratorias" name="enfe_respiratorias" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked2">
+                    <label class="form-check-label" for="flexCheckChecked2">
+                      Enfermedades respiratorias
+                    </label>
+                  </div>
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.cardiopatias" name="cardiopatias" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked3">
+                    <label class="form-check-label" for="flexCheckChecked3">
+                      Cardiopatias
+                    </label>
+                  </div>
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.sistema_digestivo" name="sistema_digestivo" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked4">
+                    <label class="form-check-label" for="flexCheckChecked4">
+                      Sistema digestivo
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.fiebre_reumatica" name="fiebre_reumatica" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked5">
+                    <label class="form-check-label" for="flexCheckChecked5">
+                      Fiebre reumatica
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.hepatitis" name="hepatitis" class="form-check-input" type="checkbox"
+                      value="si" id="flexCheckChecked6">
+                    <label class="form-check-label" for="flexCheckChecked6">
+                      Hepatitis
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.enfer_renales" name="enfer_renales" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked7">
+                    <label class="form-check-label" for="flexCheckChecked7">
+                      Enfermedades renales
+                    </label>
+                  </div>
+
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.enfer_gastrointestinales" name="enfer_gastrointestinales"
+                      class="form-check-input" type="checkbox" value="si" id="flexCheckChecked8">
+                    <label class="form-check-label" for="flexCheckChecked8">
+                      Enfermedades gastrointestinales
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.quirurgico" name="quirurgico" class="form-check-input" type="checkbox"
+                      value="si" id="flexCheckChecked9">
+                    <label class="form-check-label" for="flexCheckChecked9">
+                      Quirurgico
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.traumatico" name="traumatico" class="form-check-input" type="checkbox"
+                      value="si" id="flexCheckChecked10">
+                    <label class="form-check-label" for="flexCheckChecked10">
+                      Traumatico
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.tratamiento_medico" name="tratamiento_medico" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked11">
+                    <label class="form-check-label" for="flexCheckChecked11">
+                      Tratamiento medico
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.toma_medicamento" name="toma_medicamento" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked111">
+                    <label class="form-check-label" for="flexCheckChecked111">
+                      Toma Medicamento
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.alergia" name="alergia" class="form-check-input" type="checkbox"
+                      value="si" id="flexCheckChecked12">
+                    <label class="form-check-label" for="flexCheckChecked12">
+                      Alergias
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.embarazo" name="embarazo" class="form-check-input" type="checkbox"
+                      value="si" id="flexCheckChecked13">
+                    <label class="form-check-label" for="flexCheckChecked13">
+                      Embarazo
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.diabetes" name="diabetes" class="form-check-input" type="checkbox"
+                      value="si" id="flexCheckChecked14">
+                    <label class="form-check-label" for="flexCheckChecked14">
+                      Diabetes
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.neoplasias" name="neoplasias" class="form-check-input" type="checkbox"
+                      value="si" id="flexCheckChecked15">
+                    <label class="form-check-label" for="flexCheckChecked15">
+                      Neoplasias
+                    </label>
+                  </div>
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.enfer_hemorrogicas" name="enfer_hemorrogicas" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked16">
+                    <label class="form-check-label" for="flexCheckChecked16">
+                      Enfermedad hemorragica
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="anamnesis.nf_neurologicas" name="nf_neurologicas" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked17">
+                    <label class="form-check-label" for="flexCheckChecked17">
+                      NF. neurologicas
+                    </label>
+                  </div>
+
+
+
+                  <div class="grupoSangineo" id="radioButtonA">
+                    <label for="text">Grupo sangineo: </label>
+                    <div class="form-check form-check-inline" id="A">
+                      <input [(ngModel)]="anamnesis.grupo_sangineo" class="form-check-input" type="radio"
+                        name="grupoSangineo" id="inlineRadio1" value="A">
+                      <label class="form-check-label" for="inlineRadio1">A</label>
+                    </div>
+
+                    <div class="form-check form-check-inline" id="B">
+                      <input [(ngModel)]="anamnesis.grupo_sangineo" class="form-check-input" type="radio"
+                        name="grupoSangineo" id="inlineRadio1" value="B">
+                      <label class="form-check-label" for="inlineRadio1">B</label>
+                    </div>
+
+                    <div class="form-check form-check-inline" id="AB">
+                      <input [(ngModel)]="anamnesis.grupo_sangineo" class="form-check-input" type="radio"
+                        name="grupoSangineo" id="inlineRadio1" value="AB">
+                      <label class="form-check-label" for="inlineRadio1">AB</label>
+                    </div>
+
+                    <div class="form-check form-check-inline" id="O">
+                      <input [(ngModel)]="anamnesis.grupo_sangineo" class="form-check-input" type="radio"
+                        name="grupoSangineo" id="inlineRadio1" value="O">
+                      <label class="form-check-label" for="inlineRadio1">O</label>
+                    </div>
+                  </div>
+
+
+                  <div class="rh" id="radioButtonA">
+                    <label for="text">RH: </label>
+                    <div class="form-check form-check-inline" id="+">
+                      <input [(ngModel)]="anamnesis.rh" class="form-check-input" type="radio" name="rh"
+                        id="inlineRadio1" value="+">
+                      <label class="form-check-label" for="inlineRadio1">+</label>
+                    </div>
+
+                    <div class="form-check form-check-inline" id="-">
+                      <input [(ngModel)]="anamnesis.rh" class="form-check-input" type="radio" name="rh"
+                        id="inlineRadio1" value="-">
+                      <label class="form-check-label" for="inlineRadio1">-</label>
+                    </div>
+                  </div>
+
+                  <div class="form-floating2" id="observaciones">
+                    <textarea [(ngModel)]="anamnesis.observaciones" name="observaciones" class="form-control"
+                      id="floatingInput" placeholder="planTratamiento" rows="1"></textarea>
+
+                    <label for="floatingInput">Observaciones</label>
+                  </div>
+
+                </div>
+              </form>
+
+              <!-------------------------------------------------------------------------->
+
+              <h1 class="fw-bold as">Examen tejidos blandos</h1>
+              <form #myForm="ngForm">
+
+                <div class="form_tejidos_blandos">
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="tejidos_blandos.labios" name="labios" class="form-check-input" type="checkbox"
+                      value="si" id="flexCheckChecked21">
+                    <label class="form-check-label" for="flexCheckChecked21">
+                      Labios
+                    </label>
+                  </div>
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="tejidos_blandos.carrillos" name="carrillos" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked22">
+                    <label class="form-check-label" for="flexCheckChecked22">
+                      Carrillos
+                    </label>
+                  </div>
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="tejidos_blandos.frenillos" name="frenillos" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked23">
+                    <label class="form-check-label" for="flexCheckChecked23">
+                      Frenillos
+                    </label>
+                  </div>
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="tejidos_blandos.encias" name="encias" class="form-check-input" type="checkbox"
+                      value="si" id="flexCheckChecked24">
+                    <label class="form-check-label" for="flexCheckChecked24">
+                      Encias
+                    </label>
+                  </div>
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="tejidos_blandos.paladar" name="paladar" class="form-check-input" type="checkbox"
+                      value="si" id="flexCheckChecked25">
+                    <label class="form-check-label" for="flexCheckChecked25">
+                      Paladar
+                    </label>
+                  </div>
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="tejidos_blandos.lengua" name="lengua" class="form-check-input" type="checkbox"
+                      value="si" id="flexCheckChecked26">
+                    <label class="form-check-label" for="flexCheckChecked26">
+                      Lengua
+                    </label>
+                  </div>
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="tejidos_blandos.orofaringe" name="orofaringe" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked27">
+                    <label class="form-check-label" for="flexCheckChecked27">
+                      Orofaringe
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="tejidos_blandos.glandulas" name="glandulas" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked28">
+                    <label class="form-check-label" for="flexCheckChecked28">
+                      Glandulas
+                    </label>
+                  </div>
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="tejidos_blandos.piso_boca" name="piso_boca" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked29">
+                    <label class="form-check-label" for="flexCheckChecked29">
+                      Piso boca
+                    </label>
+                  </div>
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="tejidos_blandos.musculos_masticatorios" name="musculos_masticatorios"
+                      class="form-check-input" type="checkbox" value="si" id="flexCheckChecked210">
+                    <label class="form-check-label" for="flexCheckChecked210">
+                      Musculos masticatorios
+                    </label>
+                  </div>
+
+
+                  <div class="form-floating3" id="observaciones">
+                    <textarea [(ngModel)]="tejidos_blandos.otros" name="observaciones" class="form-control"
+                      id="floatingInput" placeholder="planTratamiento" rows="1"></textarea>
+
+                    <label for="floatingInput">Otros</label>
+                  </div>
+
+
+
+
+                  <br>
+
+
+
+                </div>
+
+              </form>
+
+              <!-------------------------------------------------------------------------->
+
+              <h1 class="fw-bold">Examen tejidos dentales</h1>
+
+              <form #myForm="ngForm">
+                <div class="form_tejidos_blandos">
+
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="tejidos_dentales.supernumerarios" name="supernumerarios"
+                      class="form-check-input" type="checkbox" value="si" id="flexCheckChecked21d">
+                    <label class="form-check-label" for="flexCheckChecked21d">
+                      Super numerarios
+                    </label>
+                  </div>
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="tejidos_dentales.abrasion" name="abrasion" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked22d">
+                    <label class="form-check-label" for="flexCheckChecked22d">
+                      Abrasion
+                    </label>
+                  </div>
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="tejidos_dentales.incluidos" name="incluidos" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked23d">
+                    <label class="form-check-label" for="flexCheckChecked23d">
+                      Incluidos
+                    </label>
+                  </div>
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="tejidos_dentales.maloclusiones" name="maloclusiones" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked24d">
+                    <label class="form-check-label" for="flexCheckChecked24d">
+                      Maloclusiones
+                    </label>
+                  </div>
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="tejidos_dentales.cambio_color" name="cambio_color" class="form-check-input"
+                      type="checkbox" value="si" id="flexCheckChecked25d">
+                    <label class="form-check-label" for="flexCheckChecked25d">
+                      Cambio color
+                    </label>
+                  </div>
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="tejidos_dentales.trauma" name="trauma" class="form-check-input" type="checkbox"
+                      value="si" id="flexCheckChecked26d">
+                    <label class="form-check-label" for="flexCheckChecked26d">
+                      Trauma
+                    </label>
+                  </div>
+
+                  <div class="form-check" id="checkBox">
+                    <input [(ngModel)]="tejidos_dentales.patologia_pulmonar" name="patologia_pulmonar"
+                      class="form-check-input" type="checkbox" value="si" id="flexCheckChecked27d">
+                    <label class="form-check-label" for="flexCheckChecked27d">
+                      Patologia Pulmonar
+                    </label>
+                  </div>
+
+
+
+
+                  <div class="form-floating3" id="observaciones">
+                    <textarea [(ngModel)]="tejidos_dentales.otros" name="observaciones" class="form-control"
+                      id="floatingInput" placeholder="planTratamiento" rows="1"></textarea>
+
+                    <label for="floatingInput">Otros</label>
+                  </div>
+
+
+
+
+                  <br>
+
+
+
+                </div>
+              </form>
+
+
+              <!-------------------------------------------------------------------------->
+
+              <h1 class="fw-bold">Examen periodontal</h1>
+
+              <form #myForm="ngForm">
+
+
+                <div class="form_examen_periodontal">
+
+
+                  <div class="bolsas" id="radioButton2">
+                    <label for="text">Bolsas: </label>
+                    <div class="form-check form-check-inline" id="SI">
+                      <input [(ngModel)]="examen_periodontal.bolsas" class="form-check-input" type="radio" name="bolsas"
+                        id="inlineRadio1" value="SI">
+                      <label class="form-check-label" for="inlineRadio1">SI</label>
+                    </div>
+
+                    <div class="form-check form-check-inline" id="NO">
+                      <input [(ngModel)]="examen_periodontal.bolsas" class="form-check-input" type="radio" name="bolsas"
+                        id="inlineRadio1" value="NO">
+                      <label class="form-check-label" for="inlineRadio1">NO</label>
+                    </div>
+                  </div>
+
+
+                  <div class="movilidad" id="radioButton2">
+                    <label for="text">Movilidad: </label>
+                    <div class="form-check form-check-inline" id="SI">
+                      <input [(ngModel)]="examen_periodontal.movilidad" class="form-check-input" type="radio"
+                        name="movilidad" id="inlineRadio1" value="SI">
+                      <label class="form-check-label" for="inlineRadio1">SI</label>
+                    </div>
+
+                    <div class="form-check form-check-inline" id="NO">
+                      <input [(ngModel)]="examen_periodontal.movilidad" class="form-check-input" type="radio"
+                        name="movilidad" id="inlineRadio1" value="NO">
+                      <label class="form-check-label" for="inlineRadio1">NO</label>
+                    </div>
+                  </div>
+
+
+                  <div class="placa_blanca" id="radioButton2">
+                    <label for="text">Placa blanca: </label>
+                    <div class="form-check form-check-inline" id="SI">
+                      <input [(ngModel)]="examen_periodontal.placaBlanca" class="form-check-input" type="radio"
+                        name="placa_blanca" id="inlineRadio1" value="SI">
+                      <label class="form-check-label" for="inlineRadio1">SI</label>
+                    </div>
+
+                    <div class="form-check form-check-inline" id="NO">
+                      <input [(ngModel)]="examen_periodontal.placaBlanca" class="form-check-input" type="radio"
+                        name="placa_blanca" id="inlineRadio1" value="NO">
+                      <label class="form-check-label" for="inlineRadio1">NO</label>
+                    </div>
+                  </div>
+
+
+
+                  <div class="calculos" id="radioButton2">
+                    <label for="text">Calculos: </label>
+                    <div class="form-check form-check-inline" id="SI">
+                      <input [(ngModel)]="examen_periodontal.calculos" class="form-check-input" type="radio"
+                        name="calculos" id="inlineRadio1" value="SI">
+                      <label class="form-check-label" for="inlineRadio1">SI</label>
+                    </div>
+
+                    <div class="form-check form-check-inline" id="NO">
+                      <input [(ngModel)]="examen_periodontal.calculos" class="form-check-input" type="radio"
+                        name="calculos" id="inlineRadio1" value="NO">
+                      <label class="form-check-label" for="inlineRadio1">NO</label>
+                    </div>
+                  </div>
+
+
+                  <div class="form-floating4" id="observaciones">
+                    <textarea [(ngModel)]="examen_periodontal.observaciones" name="observaciones" class="form-control"
+                      id="floatingInput" placeholder="planTratamiento" rows="1"></textarea>
+
+                    <label for="floatingInput">Observaciones</label>
+                  </div>
+
+
+
+
+
+                </div>
+
+
+              </form>
+
+              <!-------------------------------------------------------------------------->
+
+
+
+
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" (click)="actualizarDatos()" class="btn btn-primary" data-bs-dismiss="modal" >Actualizar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal fin  -->
+
+    </div>
+  </div>

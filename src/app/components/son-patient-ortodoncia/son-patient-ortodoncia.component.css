@@ -1,0 +1,98 @@
+/* Datos Paciente */
+
+
+.fw-bold.as{
+  margin-top: 3%;
+  margin-bottom: 5%;
+
+}
+
+.form-floating{
+  width: 40%;
+  margin-left: 4%;
+  margin-bottom: 2%;
+}
+
+.containerForm{
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-sizing: border-box;
+  }
+
+  .tipoId{
+      width: 40%;
+
+      margin-left: 4%;
+
+      display: flex;
+
+      justify-content: space-evenly;
+      align-items: center;
+  }
+
+  .form-check-input:checked {
+    background-color: rgb(171, 65, 129);
+    border-color:  rgb(184, 76, 141);
+}
+
+.datepiker{
+  width: 40%;
+  margin-left: 4%;
+
+}
+
+.custom-form-field {
+
+  width: 100%;
+
+  margin-bottom: 0%;
+}
+
+.sexo{
+  width: 40%;
+  margin-left: 4%;
+  height: 55px;
+  display: flex;
+
+  justify-content: space-evenly;
+  align-items: center;
+
+}
+
+.col-md-8{
+width: 100%;
+}
+
+/* Datos Paciente fin */
+
+
+/* Datos Anamnesis*/
+
+.form_ananmesis{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+
+#radioButtonA{
+  width: 41%;
+
+  display: flex;
+
+  justify-content: space-evenly;
+  align-items: center;
+
+  margin-bottom: 5%;
+}
+
+#checkBox{
+  width: 27%;
+  text-align: start;
+  margin-bottom: 3%;
+}
+
+/* Datos Anamnesis fin */

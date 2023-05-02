@@ -1,0 +1,99 @@
+<div class="GlobalContainer">
+
+
+
+  <div class="body">
+
+    <h1 class="fw-bold">Datos Odontologia</h1>
+
+    <div class="form_odontologia">
+
+
+      <div class="higiene" id="radioButton">
+
+        <label for="text">Higiene oral: </label>
+        <div class="form-check form-check-inline" id="B">
+          <input [(ngModel)]="odontologia.higiene_oral" class="form-check-input" type="radio" name="higiene" id="higieneB" value="Bueno">
+          <label class="form-check-label" for="higieneB">B</label>
+        </div>
+
+        <div class="form-check form-check-inline" id="R">
+          <input [(ngModel)]="odontologia.higiene_oral"  class="form-check-input" type="radio" name="higiene" id="higieneR" value="Regular">
+          <label class="form-check-label" for="higieneR">R</label>
+        </div>
+
+        <div class="form-check form-check-inline" id="M">
+          <input [(ngModel)]="odontologia.higiene_oral"   class="form-check-input" type="radio" name="higiene" id="higieneM" value="Malo">
+          <label class="form-check-label" for="higieneM">M</label>
+        </div>
+
+      </div>
+
+      <div class="cepillado" id="radioButton">
+
+        <label for="text">Cepillado: </label>
+        <div class="form-check form-check-inline" id="SI">
+          <input [(ngModel)]="odontologia.cepillado" class="form-check-input" type="radio" name="cepillado" id="cepilladoS" value="SI">
+          <label class="form-check-label" for="cepilladoS">SI</label>
+        </div>
+
+        <div class="form-check form-check-inline" id="NO">
+          <input [(ngModel)]="odontologia.cepillado" class="form-check-input" type="radio" name="cepillado" id="inlineRadio1" value="NO">
+          <label class="form-check-label" for="inlineRadio1">NO</label>
+        </div>
+
+      </div>
+
+
+      <div class="form-floating" id="numero">
+        <input [(ngModel)]="odontologia.numero_cepillado" type="text" class="form-control" id="floatingInput" placeholder="numeroCepillado"
+          name="Numero_cepillado"  maxlength="30"
+          onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;">
+        <label for="floatingInput">Numero Cepillado</label>
+      </div>
+
+
+      <div class="enjuague" id="radioButton">
+
+        <label for="text">Enjuague bucal: </label>
+        <div class="form-check form-check-inline" id="SI">
+          <input [(ngModel)]="odontologia.enjuague_bucal" class="form-check-input" type="radio" name="enjuague" id="inlineRadio1" value="SI">
+          <label class="form-check-label" for="inlineRadio1">SI</label>
+        </div>
+
+        <div class="form-check form-check-inline" id="NO">
+          <input [(ngModel)]="odontologia.enjuague_bucal" class="form-check-input" type="radio" name="enjuague" id="inlineRadio1" value="NO">
+          <label class="form-check-label" for="inlineRadio1">NO</label>
+        </div>
+
+      </div>
+
+      <div class="seda" id="radioButton">
+
+        <label for="text">Seda dental: </label>
+        <div class="form-check form-check-inline" id="SI">
+          <input [(ngModel)]="odontologia.seda_dental" class="form-check-input" type="radio" name="seda" id="inlineRadio1" value="SI">
+          <label class="form-check-label" for="inlineRadio1">SI</label>
+        </div>
+
+        <div class="form-check form-check-inline" id="NO">
+          <input [(ngModel)]="odontologia.seda_dental" class="form-check-input" type="radio" name="seda" id="inlineRadio1" value="NO">
+          <label class="form-check-label" for="inlineRadio1">NO</label>
+        </div>
+
+      </div>
+
+
+
+
+      <div class="form-floating" id="plan">
+        <textarea [(ngModel)]="odontologia.plan_tratamiento" name="plan_tratamiento" class="form-control" id="floatingInput" placeholder="planTratamiento"cols="300" rows="10"></textarea>
+
+        <label for="floatingInput">Plan de tratamiento</label>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,38 @@
+
+
+<body class="text-center">
+
+  
+
+  <main class="form">
+    <form>
+      <br>
+      <h1 class="h3 mb-3 fw-norma">Gestor Historiales</h1>
+      <h1 class="h3 mb-3 fw-norma">Clinicos</h1>
+
+      <img class="mb-4" src="../assets/images/Logo.png" alt="VitaDent logo" width="220" height="100">
+
+
+      <h1 class="h3 mb-3 fw-norma">Login</h1>
+
+      <div class="form-floating">
+        <input [(ngModel)]="user.user" type="text" class="form-control" id="floatingInput" placeholder="name"
+          name="userName">
+        <label for="floatingInput">User</label>
+      </div>
+
+      <div class="form-floating">
+        <input [(ngModel)]="user.password" type="password" class="form-control" id="floatingPassword"
+          placeholder="Password" name="password">
+        <label for="floatingPassword">Password</label>
+      </div>
+
+      <br>
+
+      <button class="btn btn-primary" (click)="logIn()">Sign in</button>
+
+
+    </form>
+  </main>
+
+</body>

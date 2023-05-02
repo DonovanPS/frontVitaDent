@@ -1,0 +1,82 @@
+<div class="GlobalContainer">
+
+  <div class="body">
+
+    <h1 class="fw-bold">Examen periodontal</h1>
+
+    <div class="form_examen_periodontal">
+
+
+      <div class="bolsas" id="radioButton">
+        <label for="text">Bolsas: </label>
+        <div class="form-check form-check-inline" id="SI">
+          <input [(ngModel)]="examenperiodontal.bolsas" class="form-check-input" type="radio" name="bolsas" id="inlineRadio1" value="SI">
+          <label class="form-check-label" for="inlineRadio1">SI</label>
+        </div>
+
+        <div class="form-check form-check-inline" id="NO">
+          <input  [(ngModel)]="examenperiodontal.bolsas" class="form-check-input" type="radio" name="bolsas" id="inlineRadio1" value="NO">
+          <label class="form-check-label" for="inlineRadio1">NO</label>
+        </div>
+      </div>
+
+
+      <div class="movilidad" id="radioButton">
+        <label for="text">Movilidad: </label>
+        <div class="form-check form-check-inline" id="SI">
+          <input  [(ngModel)]="examenperiodontal.movilidad" class="form-check-input" type="radio" name="movilidad" id="inlineRadio1" value="SI">
+          <label class="form-check-label" for="inlineRadio1">SI</label>
+        </div>
+
+        <div class="form-check form-check-inline" id="NO">
+          <input  [(ngModel)]="examenperiodontal.movilidad" class="form-check-input" type="radio" name="movilidad" id="inlineRadio1" value="NO">
+          <label class="form-check-label" for="inlineRadio1">NO</label>
+        </div>
+      </div>
+
+
+      <div class="placa_blanca" id="radioButton">
+        <label for="text">Placa blanca: </label>
+        <div class="form-check form-check-inline" id="SI">
+          <input  [(ngModel)]="examenperiodontal.placaBlanca" class="form-check-input" type="radio" name="placa_blanca" id="inlineRadio1" value="SI">
+          <label class="form-check-label" for="inlineRadio1">SI</label>
+        </div>
+
+        <div class="form-check form-check-inline" id="NO">
+          <input  [(ngModel)]="examenperiodontal.placaBlanca" class="form-check-input" type="radio" name="placa_blanca" id="inlineRadio1" value="NO">
+          <label class="form-check-label" for="inlineRadio1">NO</label>
+        </div>
+      </div>
+
+
+
+      <div class="calculos" id="radioButton">
+        <label for="text">Calculos: </label>
+        <div class="form-check form-check-inline" id="SI">
+          <input  [(ngModel)]="examenperiodontal.calculos" class="form-check-input" type="radio" name="calculos" id="inlineRadio1" value="SI">
+          <label class="form-check-label" for="inlineRadio1">SI</label>
+        </div>
+
+        <div class="form-check form-check-inline" id="NO">
+          <input  [(ngModel)]="examenperiodontal.calculos" class="form-check-input" type="radio" name="calculos" id="inlineRadio1" value="NO">
+          <label class="form-check-label" for="inlineRadio1">NO</label>
+        </div>
+      </div>
+
+
+      <div class="form-floating" id="observaciones">
+        <textarea  [(ngModel)]="examenperiodontal.observaciones" name="observaciones" class="form-control" id="floatingInput" placeholder="planTratamiento" cols="300"
+          rows="10"></textarea>
+
+        <label for="floatingInput">Observaciones</label>
+      </div>
+
+
+
+
+
+    </div>
+
+    <br>
+  </div>
+</div>

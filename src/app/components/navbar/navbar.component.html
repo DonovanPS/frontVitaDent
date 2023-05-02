@@ -1,0 +1,77 @@
+<!--
+    <div class="containerGlobal">
+
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <a class="navbar-brand" >Navbar</a>
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link" >Home </a>
+            <a class="nav-item nav-link" >Features</a>
+            <a class="nav-item nav-link" >Pricing</a>
+
+          </div>
+        </div>
+      </nav>
+
+
+</div>
+ -->
+
+
+<div class="containerGlobal">
+
+  <nav class="navbar navbar-expand-md ">
+    <div class="container-fluid">
+
+      <div class="containerLogo">
+        <a class="navbar-brand" routerLink="/home" routerLinkActive="active" ><img class="mb" src="../assets/images/Logo.png" alt="VitaDent logo" width="100"
+            height="40"></a>
+      </div>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+
+      <!-- Elementos del menu colapsable -->
+
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item1 "><a class=" nav-link" routerLink="/home" routerLinkActive="active">Inicio</a></li>
+          <li class="nav-item "><a class=" nav-link" routerLink="/history-search"
+              routerLinkActive="active">Pacientes</a></li>
+          <li class="nav-item "><a class=" nav-link" routerLink="/records" routerLinkActive="active">Registros</a></li>
+
+          <li class="nav-item dropdown"><a class=" nav-link dropdown-toggle" id="navbarDropdown1" role="button"
+              data-bs-toggle="dropdown">Ortodoncia</a>
+
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="/new-history-ortodoncia" routerLinkActive="active">Nuevo Historial</a></li>
+              <li><a class="dropdown-item" routerLink="/history-search" routerLinkActive="active">Buscar Historial</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item2 dropdown"><a class=" nav-link dropdown-toggle" id="navbarDropdown2" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">Odontología</a>
+
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="/new-history" routerLinkActive="active">Nuevo Historial</a></li>
+              <li><a class="dropdown-item" routerLink="/history-search" routerLinkActive="active">Buscar Historial</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+
+
+
+    </div>
+  </nav>
+
+
+
+</div>
+
+<router-outlet></router-outlet>

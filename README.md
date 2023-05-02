@@ -1,23 +1,6 @@
-# Northflank Angular.js Example
+# Cliente
 
-<a target="_blank" rel="noopener noreferrer" href="https://www.northflank.com">
-    <img alt="Northflank" align="right" src="/media/logo.svg" width="35%" />
-</a>
-
-Deploy this Angular.js web application easily with [Northflank](https://www.northflank.com):
-
-- [Create a service from template on Northflank](https://app.northflank.com/s/project/create/template-service)
-- Select the Angular template
-- Wait for the app to build and visit the newly assigned URL. That's it!
-
-You can now clone your repository locally and start making changes. Push your changes to automatically build and deploy the updated application!
-
-[Learn more about using Northflank](https://northflank.com/docs/).
-
-## About Angular
-[AngularJS](https://angularjs.org) is a JavaScript-based open-source front-end web framework mainly maintained by Google and by a community of individuals and corporations to address many of the challenges encountered in developing single-page applications.
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.9.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
 
 ## Development server
 
